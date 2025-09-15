@@ -1,1 +1,403 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shop title</title>
+    <meta name="description" content="shop description">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <button class="mobile-nav-toggle" id="mobileNavToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <a href="/">Shopify</a>
+                </div>
+                <nav class="nav">
+                    <div class="desktop-nav">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/shop-menu1-link">shop menu1</a></li>
+                            <li><a href="/shop-menu2-link">shop menu2</a></li>
+                            <li><a href="/shop-menu3-link">shop menu3</a></li>
+                            <li><a href="/shop-menu4-link">shop menu4</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn" id="searchBtn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <ul>
+                <button class="close-menu" id="closeMenu"></button>
+                <li><a href="/">Home</a></li>
+                <li><a href="/shop-menu1-link">menu1</a></li>
+                <li><a href="/shop-menu2-link">menu2</a></li>
+                <li><a href="/shop-menu3-link">menu3</a></li>
+                <li><a href="/shop-menu4-link">menu4</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li>shop title</li>
+            </ul>
+        </div>
+    </div>
+    <main class="container">
+        <div class="product-detail">
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img src="img/1.jpg" alt="img1" id="mainImage">
+                </div>
+                <div class="thumbnail-container">
+                    <div class="thumbnail active" data-image="/img/2.jpg">
+                        <img src="img/2.jpg" alt="img2">
+                    </div>
+                    <div class="thumbnail" data-image="/img/3.jpg">
+                        <img src="img/3.jpg" alt="img3">
+                    </div>
+                    <div class="thumbnail" data-image="/img/4.jpg">
+                        <img src="img/4.jpg" alt="img4">
+                    </div>
+                    <div class="thumbnail" data-image="/img/5.jpg">
+                        <img src="img/5.jpg" alt="img5">
+                    </div>
+                </div>
+            </div>
+            <div class="product-info">
+                <h1>shop title</h1>
+                <div class="price">฿168.00</div>
+                <div class="rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="review-count">(42 Reviews)</span>
+                </div>
+                <div class="description">
+                    <p>shop description</p>
+                </div>
+                <div class="product-options">
+                    <div class="option">
+                        <label>Color:</label>
+                        <div class="color-options">
+                            <div class="color-option active" style="background-color: #FF0000;" data-color="Red"></div>
+                            <div class="color-option" style="background-color: #FF7F00;" data-color="Orange"></div>
+                            <div class="color-option" style="background-color: #0000FF;" data-color="Blue"></div>
+                            <div class="color-option" style="background-color: #8B00FF;" data-color="Purple"></div>
+                        </div>
+                    </div>
+                    <div class="option">
+                        <label for="quantity">Quantity:</label>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" id="quantity" value="1" min="1">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="add-to-cart-btn" id="addToCart">ADD TO CART</button>
+                </div>
+                <div class="product-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Inventory:</span>
+                        <span class="meta-value">In stock</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">SKU:</span>
+                        <span class="meta-value">CP001</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-value">shop / title</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-tabs">
+            <div class="tabs-header">
+                <div class="tab-link active" data-tab="reviews">Customer Reviews (42)</div>
+            </div>
+            <div class="tabs-content">
+                <div class="tab-pane active" id="reviews">
+                    <h3>Customer Reviews</h3>
+                    <div class="reviews-summary">
+                        <div class="average-rating">
+                            <div class="avg-rate">4.9</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div>Based on 42 reviews</div>
+                        </div>
+                        <div class="rating-bars">
+                            <div class="rating-bar">
+                                <div class="bar">
+                                    <div class="fill" style="width: 90%;"></div>
+                                </div>
+                                <span>90%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <div class="bar">
+                                    <div class="fill" style="width: 10%;"></div>
+                                </div>
+                                <span>10%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <div class="bar">
+                                    <div class="fill" style="width: 0%;"></div>
+                                </div>
+                                <span>0%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <div class="bar">
+                                    <div class="fill" style="width: 0%;"></div>
+                                </div>
+                                <span>0%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <div class="bar">
+                                    <div class="fill" style="width: 0%;"></div>
+                                </div>
+                                <span>0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews-list">
+                        <div class="review">
+                            <div class="reviewer">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">alia</div>
+                                    <div class="review-date">2023-10-15</div>
+                                </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <h4>Very good</h4>
+                                <p>Very good Very good Very good</p>
+                            </div>
+                        </div>
+                        <div class="review">
+                            <div class="reviewer">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">alib</div>
+                                    <div class="review-date">2023-10-10</div>
+                                </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <h4>Very good</h4>
+                                <p>Very good Very good Very good</p>
+                            </div>
+                        </div>
+                        <div class="review">
+                            <div class="reviewer">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">alic</div>
+                                    <div class="review-date">2023-10-10</div>
+                                </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <h4>Very good</h4>
+                                <p>Very good Very good Very good</p>
+                            </div>
+                        </div>
+                        <div class="review">
+                            <div class="reviewer">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">alid</div>
+                                    <div class="review-date">2023-10-10</div>
+                                </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <h4>Very good</h4>
+                                <p>Very good Very good Very good</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="write-review-btn" id="writeReview">Write A Review</button>
+                </div>
+            </div>
+        </div>
+        <section class="related-products">
+            <h2>You may also like</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <a href="/shop-rel1-link">
+                            <img src="/img/6.jpg" alt="rel1">
+                        </a>
+                    </div>
+                    <div class="product-details">
+                        <a href="/shop-rel1-link">
+                            <h3>rel1-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
+                        </a>
+                        <div class="price">฿299.00</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <a href="/shop-rel2-link">
+                            <img src="/img/7.jpg" alt="rel2">
+                        </a>
+                    </div>
+                    <div class="product-details">
+                        <a href="/shop-rel2-link">
+                            <h3>rel2-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
+                        </a>
+                        <div class="price">¥228.00</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <a href="/shop-rel3-link">
+                            <img src="/img/8.jpg" alt="rel3">
+                        </a>
+                    </div>
+                    <div class="product-details">
+                        <a href="/shop-rel3-link">
+                            <h3>rel3-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
+                        </a>
+                        <div class="price">¥135.00</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <a href="/shop-rel4-link">
+                        <img src="/img/9.jpg" alt="rel4">
+                        </a>
+                    </div>
+                    <div class="product-details">
+                        <a href="/shop-rel4-link">
+                            <h3>rel4-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
+                        </a>
+                        <div class="price">¥45.00</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-nav-container">
+                <div class="footer-nav">
+                    <h3>Shopping</h3>
+                    <ul>
+                        <li><a href="/shop-menu1-link">menu1</a></li>
+                        <li><a href="/shop-menu2-link">menu2</a></li>
+                        <li><a href="/shop-menu3-link">menu3</a></li>
+                        <li><a href="/shop-menu4-link">menu4</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Shopify. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <div class="modal" id="searchModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Search for products</h2>
+            <div class="search-form">
+                <input type="text" placeholder="Enter search keywords...">
+                <button><i class="fas fa-search"></i> Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Shopping Cart</h2>
+            <div class="cart-items">
+                <div class="empty-cart-message">
+                    <p>Your shopping cart is empty</p>
+                </div>
+            </div>
+            <div class="cart-total">
+                <strong>total: ฿<span id="cartTotal">0.00</span></strong>
+            </div>
+            <button class="checkout-btn">Settlement</button>
+        </div>
+    </div>
+    <div class="modal" id="reviewModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Write a review</h2>
+            <form class="review-form">
+                <div class="form-group">
+                    <label>score</label>
+                    <div class="rating-input">
+                        <i class="far fa-star" data-rating="1"></i>
+                        <i class="far fa-star" data-rating="2"></i>
+                        <i class="far fa-star" data-rating="3"></i>
+                        <i class="far fa-star" data-rating="4"></i>
+                        <i class="far fa-star" data-rating="5"></i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reviewTitle">Review title</label>
+                    <input type="text" id="reviewTitle" placeholder="Please enter a title">
+                </div>
+                <div class="form-group">
+                    <label for="reviewContent">Comment content</label>
+                    <textarea id="reviewContent" placeholder="Please enter your comment..."></textarea>
+                </div>
+                <button type="submit">Submit a review</button>
+            </form>
+        </div>
+    </div>
+    <script src="/shop/assets/scripts.js"></script>
+</body>
+</html>
