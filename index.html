@@ -82,6 +82,10 @@
             width: 150px;
             outline: none;
         }
+         /* 新增：为搜索图标添加 cursor: pointer 样式，使其看起来更像可点击 */
+        .search-box .fa-search {
+            cursor: pointer;
+        }
         .cart-icon {
             position: relative;
             font-size: 1.2rem;
@@ -320,17 +324,34 @@
         .product-card-info {
             padding: 15px;
         }
+        /* --- 修改部分：商品卡片标题样式 --- */
         .product-card-title {
             font-size: 1rem;
             margin-bottom: 8px;
+            /* 使用 flexbox 或 block 布局 */
+            display: block;
+            /* 设置固定高度，确保只显示一行或两行 */
+            height: 1.4em; /* 大约一行的高度 */
+            /* 启用文本截断 */
+            white-space: nowrap; /* 不换行 */
+            overflow: hidden; /* 超出部分隐藏 */
+            text-overflow: ellipsis; /* 超出部分用省略号表示 */
+            /* 如果需要显示两行再截断，可以使用以下样式替代上面三行：
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            overflow: hidden;
-            height: 2.8em;
+            -webkit-line-clamp: 2; /* 显示两行 */
+            /* overflow: hidden;
+            text-overflow: ellipsis;
+            */
         }
+        /* --- 修改结束 --- */
         .product-card-price {
             color: #2c3e50;
             font-weight: bold;
+        }
+        .product-card-rating {
+            color: #f39c12; /* 例如，使用十六进制颜色代码设置为金色 */
+            margin-bottom: 8px; /* 在评分和价格之间添加一些间距 */
         }
         /* 评论区域 - 修改为星级评分 */
         .reviews {
@@ -674,7 +695,8 @@
             }
             .product-card-title {
                 font-size: 0.9rem;
-                height: 2.6em;
+                /* height: 2.6em; */ /* 移除固定高度 */
+                height: 1.3em; /* 调整单行高度 */
             }
             .product-card-info {
                 padding: 10px;
@@ -724,6 +746,8 @@
             }
             .product-card-title {
                 font-size: 0.85rem;
+                /* height: 2.4em; */ /* 移除固定高度 */
+                height: 1.2em; /* 调整单行高度 */
             }
             .product-card-price {
                 font-size: 0.9rem;
@@ -757,6 +781,11 @@
                 width: 90px;
                 padding: 5px;
             }
+             .product-card-title {
+                 font-size: 0.8rem;
+                 /* height: 2.2em; */ /* 移除固定高度 */
+                 height: 1.1em; /* 调整单行高度 */
+            }
         }
     </style>
 </head>
@@ -774,8 +803,8 @@
                 </div>
                 <div class="search-cart">
                     <div class="search-box">
-                        <input type="text" placeholder="搜索商品...">
-                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="搜索商品..." id="search-input"> <!-- 给输入框加了 ID -->
+                        <i class="fas fa-search" id="search-icon"></i> <!-- 给图标加了 ID -->
                     </div>
                     <div class="cart-icon">
                         <i class="fas fa-shopping-cart"></i>
@@ -791,7 +820,6 @@
                 <li><a href="#">热卖商品</a></li>
                 <li><a href="#">新品上市</a></li>
                 <li><a href="#">促销活动</a></li>
-                <li><a href="#">联系我们</a></li>
             </ul>
         </nav>
     </header>
@@ -837,10 +865,10 @@
                     <div class="option-group">
                         <span class="option-label">颜色:</span>
                         <div class="color-options">
-                            <div class="color-option selected" data-color="红色" style="background-color: #e74c3c;"></div>
-                            <div class="color-option" data-color="蓝色" style="background-color: #3498db;"></div>
-                            <div class="color-option" data-color="绿色" style="background-color: #2ecc71;"></div>
-                            <div class="color-option" data-color="黑色" style="background-color: #2c3e50;"></div>
+                            <div class="color-option selected" data-color="red" style="background-color: #e74c3c;"></div>
+                            <div class="color-option" data-color="blue" style="background-color: #3498db;"></div>
+                            <div class="color-option" data-color="green" style="background-color: #2ecc71;"></div>
+                            <div class="color-option" data-color="black" style="background-color: #2c3e50;"></div>
                         </div>
                     </div>
                     <!-- 数量选择 -->
@@ -855,14 +883,6 @@
                 </div>
                 <p class="product-description">
                     这是一段关于这个优质商品的详细描述。产品采用高质量材料制成，经过精心设计，确保满足您的各种需求。产品特性包括耐用性、多功能性和美观设计。
-                    <br><br>
-                    产品规格:
-                    <ul>
-                        <li>材质: 高级ABS塑料</li>
-                        <li>尺寸: 30cm x 20cm x 10cm</li>
-                        <li>重量: 500g</li>
-                        <li>颜色: 多种可选</li>
-                    </ul>
                 </p>
                 <button class="add-to-cart">加入购物车</button>
             </div>
@@ -877,7 +897,15 @@
                             <img src="img/6.webp" alt="推荐商品1">
                         </div>
                         <div class="product-card-info">
+                            <!-- 修改：标题内容保持不变，样式已调整 -->
                             <h3 class="product-card-title">推荐商品名称一号这是一个较长的标题测试</h3>
+                            <div class="product-card-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
                             <div class="product-card-price">¥199.00</div>
                         </div>
                     </a>
@@ -1034,7 +1062,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 ShopName. 版权所有</p>
+            <p>&copy; 2023 Shop. 版权所有</p>
         </div>
     </footer>
     <!-- 写评论模态框 -->
@@ -1287,8 +1315,44 @@
                     // 这里可以添加提交评分到服务器的代码
                 });
             });
-            // --- 返回顶部功能已移除 ---
-            // (原返回顶部相关的 JavaScript 代码已被删除)
+            // --- 搜索功能 ---
+            // 1. 获取搜索输入框和搜索图标元素
+            const searchInput = document.getElementById('search-input');
+            const searchIcon = document.getElementById('search-icon');
+            // 2. 定义执行搜索的函数
+            function performSearch() {
+                const query = searchInput.value.trim(); // 获取输入值并去除首尾空格
+                if (query) {
+                    // --- 在这里执行你的搜索逻辑 ---
+                    // 例如，跳转到搜索结果页面（将 'search-results.html' 替换为你实际的搜索页面地址）
+                    // window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+                    // 或者，如果你有搜索功能的 API，可以在这里发起请求
+                    // fetch(`/api/search?q=${encodeURIComponent(query)}`)
+                    //   .then(response => response.json())
+                    //   .then(data => { ...处理搜索结果... });
+                    // 为了演示，我们暂时用 alert 显示搜索词
+                    alert(`执行搜索: ${query}`);
+                    // -------------------------------
+                } else {
+                    // 可选：如果输入为空，给出提示
+                    alert('请输入搜索关键词');
+                    // 或者让输入框获得焦点
+                    // searchInput.focus();
+                }
+            }
+            // 3. 为搜索图标添加点击事件监听器
+            if (searchIcon) { // 确保图标元素存在
+                searchIcon.addEventListener('click', performSearch);
+            }
+            // 4. 可选：为输入框添加回车键监听，提升用户体验
+            if (searchInput) {
+                searchInput.addEventListener('keypress', function(event) {
+                    if (event.key === 'Enter') {
+                        performSearch();
+                    }
+                });
+            }
+            // --- 搜索功能结束 ---
         });
     </script>
 </body>
