@@ -569,7 +569,7 @@
             color: #f39c12;
         }
         .submit-review {
-            background: #51beed;
+            background: #2c3e50;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -620,7 +620,7 @@
             text-align: right;
         }
         .checkout-btn {
-            background: #3498db;
+            background: #2c3e50;
             color: white;
             border: none;
             padding: 12px 20px;
@@ -657,7 +657,7 @@
         }
         @media (max-width: 992px) {
             .products-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(4, 1fr);
             }
         }
         @media (max-width: 768px) { /* 当屏幕宽度小于等于 768px 时 */
@@ -692,11 +692,6 @@
             }
             .search-box input {
                 width: 180px;
-            }
-            .product-card-title {
-                font-size: 0.9rem;
-                /* height: 2.6em; */ /* 移除固定高度 */
-                height: 1.3em; /* 调整单行高度 */
             }
             .product-card-info {
                 padding: 10px;
@@ -744,11 +739,6 @@
             .footer-section {
                 min-width: 100%;
             }
-            .product-card-title {
-                font-size: 0.85rem;
-                /* height: 2.4em; */ /* 移除固定高度 */
-                height: 1.2em; /* 调整单行高度 */
-            }
             .product-card-price {
                 font-size: 0.9rem;
             }
@@ -765,7 +755,7 @@
         }
         @media (max-width: 400px) {
             .products-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
             .header-top {
                 padding: 10px 15px;
@@ -780,11 +770,6 @@
             .search-box input {
                 width: 90px;
                 padding: 5px;
-            }
-             .product-card-title {
-                 font-size: 0.8rem;
-                 /* height: 2.2em; */ /* 移除固定高度 */
-                 height: 1.1em; /* 调整单行高度 */
             }
         }
     </style>
@@ -917,6 +902,13 @@
                         </div>
                         <div class="product-card-info">
                             <h3 class="product-card-title">推荐商品名称二号</h3>
+                            <div class="product-card-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
                             <div class="product-card-price">¥249.00</div>
                         </div>
                     </a>
@@ -928,6 +920,13 @@
                         </div>
                         <div class="product-card-info">
                             <h3 class="product-card-title">推荐商品名称三号</h3>
+                            <div class="product-card-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
                             <div class="product-card-price">¥179.00</div>
                         </div>
                     </a>
@@ -939,6 +938,13 @@
                         </div>
                         <div class="product-card-info">
                             <h3 class="product-card-title">推荐商品名称四号</h3>
+                            <div class="product-card-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
                             <div class="product-card-price">¥299.00</div>
                         </div>
                     </a>
@@ -1353,6 +1359,16 @@
                 });
             }
             // --- 搜索功能结束 ---
+            const simpleBackToTop = document.getElementById("simple-back-to-top");
+            // 点击底部返回顶部按钮时平滑滚动到顶部
+            simpleBackToTop.addEventListener('click', function(e) {
+                e.preventDefault(); // 阻止默认的链接跳转行为
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // 平滑滚动
+                });
+            });
+            // --- 简洁底部导航条功能结束 ---
         });
     </script>
 </body>
