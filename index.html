@@ -465,7 +465,7 @@
         footer {
             background: #2c3e50;
             color: white;
-            padding: 40px 0 20px;
+            padding:0 30px;
         }
         .footer-content {
             max-width: 1200px;
@@ -648,6 +648,12 @@
             background-color: #f39c12;
             color: white;
         }
+        .navFooterBackToTop {
+            text-align: center;
+            padding: 5px;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
         @media (min-width: 769px) {
             .nav-toggle {
                 display: none;
@@ -661,7 +667,7 @@
                 padding: 10px 0;
                 justify-content: center;
                 box-shadow: none;
-                margin: 0;
+                margin: 8px 0;
                 order: initial;
                 width: 100%;
             }
@@ -1062,6 +1068,12 @@
         </section>
     </main>
     <footer>
+        <div class="navFooterBackToTop">
+            <a id="backToTopBtn">
+                <i class="fas fa-chevron-up"></i>
+                <span>返回顶部</span>
+            </a>
+        </div>
         <div class="footer-content">
             <div class="footer-section">
                 <h3>购物指南</h3>
@@ -1357,6 +1369,16 @@
                     }
                 });
             }
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            function topFunction() {
+            // 使用 scrollIntoView 方法实现平滑滚动
+                document.body.scrollIntoView({ behavior: "smooth" });
+            // 对于某些浏览器，可能需要使用 document.documentElement
+            // document.documentElement.scrollIntoView({ behavior: "smooth" });
+            }
+
+            // 为按钮添加点击事件监听器
+            backToTopBtn.addEventListener('click', topFunction);
         });
     </script>
 </body>
