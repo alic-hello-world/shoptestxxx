@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="高品质商品详情页 - 提供优质购物体验">
     <title>优质商品 - 您的品牌名称</title>
+    <!-- 引入 Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* 重置样式 */
@@ -87,6 +88,14 @@
             flex-shrink: 0;
         }
         /* --- 修改结束 --- */
+        /* 会员图标样式 */
+        .member-icon {
+            position: relative;
+            font-size: 1.2rem;
+            cursor: pointer;
+            flex-shrink: 0;
+            margin-right: 15px; /* 与购物车图标保持间距 */
+        }
         .cart-icon {
             position: relative;
             font-size: 1.2rem;
@@ -609,6 +618,36 @@
             cursor: pointer;
             font-size: 1rem;
         }
+        /* 会员登录模态框样式 */
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .login-form .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+        .login-form .btn-group button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .login-btn {
+            background-color: #2c3e50;
+            color: white;
+        }
+        .register-btn {
+            background-color: #f39c12;
+            color: white;
+        }
         @media (min-width: 769px) {
             .nav-toggle {
                 display: none;
@@ -742,7 +781,6 @@
                 margin-right: 15px;
                 margin-left: 15px;
                 padding: 5px 10px;
-
             }
             .search-box input {
                 padding: 5px;
@@ -762,6 +800,11 @@
                     <div class="logo">Shop</div>
                 </div>
                 <div class="search-cart">
+                    <!-- 会员图标 -->
+                    <div class="member-icon" id="member-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <!-- 购物车图标 -->
                     <div class="cart-icon">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count">0</span>
@@ -1036,6 +1079,22 @@
             <p>&copy; 2023 Shop. 版权所有</p>
         </div>
     </footer>
+    <!-- 会员登录/注册模态框 -->
+    <div class="modal" id="member-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>会员中心</h2>
+            <form class="login-form">
+                <input type="text" placeholder="用户名/邮箱" required>
+                <input type="password" placeholder="密码" required>
+                <div class="btn-group">
+                    <button type="button" class="register-btn">注册</button>
+                    <button type="submit" class="login-btn">登录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- 原有的评论和购物车模态框 -->
     <div class="modal" id="review-modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -1206,11 +1265,18 @@
             reviewBtn.addEventListener('click', function() {
                 reviewModal.style.display = 'flex';
             });
+            // 会员图标点击事件
+            const memberIcon = document.getElementById('member-icon');
+            const memberModal = document.getElementById('member-modal');
+            memberIcon.addEventListener('click', function() {
+                memberModal.style.display = 'flex';
+            });
             const closeButtons = document.querySelectorAll('.close-modal');
             closeButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     reviewModal.style.display = 'none';
                     cartModal.style.display = 'none';
+                    memberModal.style.display = 'none'; // 关闭会员模态框
                 });
             });
             window.addEventListener('click', function(event) {
@@ -1219,6 +1285,9 @@
                 }
                 if (event.target === cartModal) {
                     cartModal.style.display = 'none';
+                }
+                if (event.target === memberModal) { // 点击背景关闭会员模态框
+                    memberModal.style.display = 'none';
                 }
             });
             const reviewForm = document.querySelector('.review-form');
@@ -1237,6 +1306,21 @@
                 alert('评论提交成功！');
                 reviewForm.reset();
                 reviewModal.style.display = 'none';
+            });
+            const loginForm = document.querySelector('.login-form');
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = this.querySelector('input[type="text"]').value;
+                const password = this.querySelector('input[type="password"]').value;
+                // 这里可以添加实际的登录验证逻辑
+                alert(`登录尝试 - 用户名: ${username}, 密码: ${password} (请实现实际登录逻辑)`);
+                // 登录成功后，可以关闭模态框
+                // memberModal.style.display = 'none';
+            });
+            const registerBtn = document.querySelector('.register-btn');
+            registerBtn.addEventListener('click', function() {
+                // 这里可以跳转到注册页面或显示注册表单
+                alert('跳转到注册页面或显示注册表单 (请实现实际注册逻辑)');
             });
             const ratingInputs = document.querySelectorAll('.star-rating-input input');
             ratingInputs.forEach(input => {
