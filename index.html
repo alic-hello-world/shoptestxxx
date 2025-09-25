@@ -931,7 +931,7 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
                             </div>
                             <div class="product-card-price">¥199.00</div>
                         </div>
@@ -949,7 +949,7 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
                             </div>
                             <div class="product-card-price">¥249.00</div>
                         </div>
@@ -967,7 +967,7 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
                             </div>
                             <div class="product-card-price">¥179.00</div>
                         </div>
@@ -985,7 +985,7 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
                             </div>
                             <div class="product-card-price">¥299.00</div>
                         </div>
@@ -997,7 +997,7 @@
             <h2 class="section-title">商品评价</h2>
             <div class="rating-summary">
                 <div class="average-rating">
-                    <div class="average-score">4.8</div>
+                    <div class="average-score">4.9</div>
                     <div class="average-stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -1013,31 +1013,31 @@
                         <div class="rating-progress">
                             <div class="rating-progress-fill" style="width: 85%;"></div>
                         </div>
-                        <div class="rating-percent">85%</div>
+                        <div class="rating-percent">95%</div>
                     </div>
                     <div class="rating-bar">
                         <div class="rating-progress">
-                            <div class="rating-progress-fill" style="width: 10%;"></div>
+                            <div class="rating-progress-fill" style="width: 5%;"></div>
                         </div>
-                        <div class="rating-percent">10%</div>
+                        <div class="rating-percent">5%</div>
                     </div>
                     <div class="rating-bar">
                         <div class="rating-progress">
-                            <div class="rating-progress-fill" style="width: 3%;"></div>
+                            <div class="rating-progress-fill" style="width: 0%;"></div>
                         </div>
-                        <div class="rating-percent">3%</div>
+                        <div class="rating-percent">0%</div>
                     </div>
                     <div class="rating-bar">
                         <div class="rating-progress">
-                            <div class="rating-progress-fill" style="width: 1%;"></div>
+                            <div class="rating-progress-fill" style="width: 0%;"></div>
                         </div>
-                        <div class="rating-percent">1%</div>
+                        <div class="rating-percent">0%</div>
                     </div>
                     <div class="rating-bar">
                         <div class="rating-progress">
-                            <div class="rating-progress-fill" style="width: 1%;"></div>
+                            <div class="rating-progress-fill" style="width: 0%;"></div>
                         </div>
-                        <div class="rating-percent">1%</div>
+                        <div class="rating-percent">0%</div>
                     </div>
                 </div>
             </div>
@@ -1063,7 +1063,7 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
+                    <i class="fas fa-star"></i>
                 </div>
                 <p class="review-content">商品不错，就是包装有点简单，好在没有损坏。使用效果符合预期，性价比高。</p>
             </div>
@@ -1251,9 +1251,7 @@
                     cart.push(product);
                 }
                 updateCartCount();
-                alert(`商品已成功添加到购物车
-颜色: ${selectedColor}
-数量: ${quantity}`);
+                alert(`商品已成功添加到购物车\n颜色: ${selectedColor}\n数量: ${quantity}`);
             });
             function updateCartCount() {
                 const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
