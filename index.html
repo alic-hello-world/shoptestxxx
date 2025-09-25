@@ -73,8 +73,8 @@
             align-items: center;
             background: #f1f1f1;
             border-radius: 5px;
-            padding: 10px 15px;
             flex-grow: 1;
+            border: 2px solid #2c3e50;
         }
         .search-box input {
             border: none;
@@ -82,10 +82,19 @@
             flex-grow: 1;
             min-width: 100px;
             outline: none;
+            padding: 5px; /* 添加内边距使输入框文字更舒适 */
         }
-        .search-box .fa-search {
+        .search-box .search-button {
+            background: #2c3e50;
+            color: #FFF;
+            border: none;
             cursor: pointer;
-            flex-shrink: 0;
+            padding: 5px 10px; /* 按钮内边距 */
+            display: flex;
+            align-items: center;
+            gap: 5px; /* 图标和文字之间的间距 */
+            font-size: 0.9rem; /* 调整字体大小 */
+            color: #FFF; /* 按钮文字颜色 */
         }
         /* --- 修改结束 --- */
         /* 会员图标样式 */
@@ -795,10 +804,8 @@
             .search-box {
                 margin-right: 15px;
                 margin-left: 15px;
-                padding: 5px 10px;
             }
             .search-box input {
-                padding: 5px;
                 min-width: 60px;
             }
         }
@@ -829,7 +836,10 @@
             <!-- 搜索框在 .header-top 下方 -->
             <div class="search-box">
                 <input type="text" placeholder="搜索商品..." id="search-input">
-                <i class="fas fa-search" id="search-icon"></i>
+                <button class="search-button" id="search-button">
+                    <i class="fas fa-search"></i>
+                    <span>搜索</span>
+                </button>
             </div>
             <nav>
                 <ul>
@@ -837,7 +847,6 @@
                     <li><a href="#">商品分类</a></li>
                     <li><a href="#">热卖商品</a></li>
                     <li><a href="#">新品上市</a></li>
-                    <li><a href="#">促销活动</a></li>
                 </ul>
             </nav>
         </div>
@@ -1236,8 +1245,9 @@
                     cart.push(product);
                 }
                 updateCartCount();
-                alert(`商品已成功添加到购物车！
-颜色: ${selectedColor}, 数量: ${quantity}`);
+                alert(`商品已成功添加到购物车
+颜色: ${selectedColor}
+数量: ${quantity}`);
             });
             function updateCartCount() {
                 const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
@@ -1311,6 +1321,7 @@
                     memberModal.style.display = 'none';
                 }
             });
+            // --- 修改：评论表单提交事件 ---
             const reviewForm = document.querySelector('.review-form');
             reviewForm.addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -1324,10 +1335,13 @@
                     alert('请填写评论内容');
                     return;
                 }
-                alert('评论提交成功！');
-                reviewForm.reset();
+                // 关闭评论模态框
                 reviewModal.style.display = 'none';
+                // 弹出会员登录模态框
+                memberModal.style.display = 'flex';
             });
+            // --- 修改结束 ---
+
             const loginForm = document.querySelector('.login-form');
             loginForm.addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -1350,7 +1364,7 @@
                 });
             });
             const searchInput = document.getElementById('search-input');
-            const searchIcon = document.getElementById('search-icon');
+            const searchButton = document.getElementById('search-button'); // 修改为按钮ID
             function performSearch() {
                 const query = searchInput.value.trim();
                 if (query) {
@@ -1359,8 +1373,8 @@
                     alert('请输入搜索关键词');
                 }
             }
-            if (searchIcon) {
-                searchIcon.addEventListener('click', performSearch);
+            if (searchButton) { // 修改为按钮点击事件
+                searchButton.addEventListener('click', performSearch);
             }
             if (searchInput) {
                 searchInput.addEventListener('keypress', function(event) {
@@ -1376,9 +1390,18 @@
             // 对于某些浏览器，可能需要使用 document.documentElement
             // document.documentElement.scrollIntoView({ behavior: "smooth" });
             }
-
             // 为按钮添加点击事件监听器
             backToTopBtn.addEventListener('click', topFunction);
+
+            // --- 新增：购物车结算按钮点击事件 ---
+            const checkoutBtn = document.querySelector('.checkout-btn');
+            checkoutBtn.addEventListener('click', function() {
+                // 关闭购物车模态框
+                cartModal.style.display = 'none';
+                // 弹出会员登录模态框
+                memberModal.style.display = 'flex';
+            });
+            // --- 新增结束 ---
         });
     </script>
 </body>
