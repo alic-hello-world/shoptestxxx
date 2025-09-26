@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,58 +16,71 @@
             box-sizing: border-box;
             font-family: 'Helvetica Neue', Arial, sans-serif;
         }
+
         body {
             color: #333;
             line-height: 1.6;
             background-color: #f8f9fa;
             min-height: 200vh;
         }
+
         a {
             text-decoration: none;
             color: inherit;
         }
+
         ul {
             list-style: none;
         }
+
         /* 头部样式 */
         header {
             background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
         }
+
         /* header-content 样式，用于对齐和限制最大宽度 */
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px; /* 左右内边距 */
+            padding: 0 15px;
+            /* 左右内边距 */
         }
+
         .header-top {
             /* padding: 15px 20px; 原始样式被注释或删除 */
-            padding: 15px 0; /* 只保留上下 padding，左右为0以对齐 .header-content */
+            padding: 15px 0;
+            /* 只保留上下 padding，左右为0以对齐 .header-content */
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .left-menu {
             display: flex;
             align-items: center;
         }
+
         .nav-toggle {
             font-size: 1.5rem;
             cursor: pointer;
             margin-right: 15px;
         }
+
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
             color: #4a4a4a;
         }
+
         .search-cart {
             display: flex;
             align-items: center;
         }
+
         /* --- 修改：搜索框样式 --- */
         .search-box {
             display: flex;
@@ -76,26 +90,34 @@
             flex-grow: 1;
             border: 2px solid #2c3e50;
         }
+
         .search-box input {
             border: none;
             background: transparent;
             flex-grow: 1;
             min-width: 100px;
             outline: none;
-            padding: 5px; /* 添加内边距使输入框文字更舒适 */
+            padding: 5px;
+            /* 添加内边距使输入框文字更舒适 */
         }
+
         .search-box .search-button {
             background: #2c3e50;
             color: #FFF;
             border: none;
             cursor: pointer;
-            padding: 5px 10px; /* 按钮内边距 */
+            padding: 5px 10px;
+            /* 按钮内边距 */
             display: flex;
             align-items: center;
-            gap: 5px; /* 图标和文字之间的间距 */
-            font-size: 0.9rem; /* 调整字体大小 */
-            color: #FFF; /* 按钮文字颜色 */
+            gap: 5px;
+            /* 图标和文字之间的间距 */
+            font-size: 0.9rem;
+            /* 调整字体大小 */
+            color: #FFF;
+            /* 按钮文字颜色 */
         }
+
         /* --- 修改结束 --- */
         /* 会员图标样式 */
         .member-icon {
@@ -103,14 +125,17 @@
             font-size: 1.2rem;
             cursor: pointer;
             flex-shrink: 0;
-            margin-right: 15px; /* 与购物车图标保持间距 */
+            margin-right: 15px;
+            /* 与购物车图标保持间距 */
         }
+
         .cart-icon {
             position: relative;
             font-size: 1.2rem;
             cursor: pointer;
             flex-shrink: 0;
         }
+
         .cart-count {
             position: absolute;
             top: -8px;
@@ -125,6 +150,7 @@
             justify-content: center;
             align-items: center;
         }
+
         nav ul {
             display: none;
             flex-direction: column;
@@ -133,40 +159,46 @@
             left: 0;
             width: 100%;
             background: white;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
             z-index: 101;
             padding: 0;
             margin: 0;
             order: 3;
             width: 100%;
         }
+
         nav ul li {
             margin: 0;
             padding: 12px 20px;
             border-bottom: 1px solid #eee;
         }
+
         nav ul.show {
             display: flex;
         }
+
         .container {
             max-width: 1200px;
             margin: 20px auto;
             padding: 0 15px;
         }
+
         .product-detail {
             display: flex;
             flex-wrap: wrap;
             background: white;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             margin-bottom: 30px;
         }
+
         .product-gallery {
             flex: 1;
             min-width: 300px;
             padding: 20px;
         }
+
         .main-image {
             width: 100%;
             height: 400px;
@@ -176,20 +208,24 @@
             overflow: hidden;
             margin-bottom: 15px;
         }
+
         .main-image img {
             /* --- 修改：限制主图尺寸 --- */
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* 保持宽高比，完整显示 */
+            object-fit: contain;
+            /* 保持宽高比，完整显示 */
             /* --- 修改结束 --- */
             cursor: pointer;
             transition: transform 0.3s;
         }
+
         .thumbnails {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
+
         .thumbnail {
             width: 70px;
             height: 70px;
@@ -198,48 +234,59 @@
             overflow: hidden;
             cursor: pointer;
         }
+
         .thumbnail img {
             /* --- 修改：限制缩略图尺寸 --- */
             width: 100%;
             height: 100%;
-            object-fit: cover; /* 填充容器，可能裁剪 */
+            object-fit: cover;
+            /* 填充容器，可能裁剪 */
             /* --- 修改结束 --- */
         }
+
         .product-info {
             flex: 1;
             min-width: 300px;
             padding: 20px;
             border-left: 1px solid #eee;
         }
+
         .product-title {
             font-size: 1.8rem;
             margin-bottom: 10px;
         }
+
         .product-price {
             font-size: 1.5rem;
             color: #e74c3c;
             margin-bottom: 15px;
         }
+
         .product-description {
             margin-bottom: 20px;
             color: #666;
         }
+
         .product-options {
             margin-bottom: 20px;
         }
+
         .option-group {
             margin-bottom: 15px;
         }
+
         .option-label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
         }
+
         .color-options {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
+
         .color-option {
             width: 30px;
             height: 30px;
@@ -248,18 +295,22 @@
             cursor: pointer;
             transition: border-color 0.2s, transform 0.2s;
         }
+
         .color-option:hover {
             border-color: #3498db;
             transform: scale(1.1);
         }
+
         .color-option.selected {
             border-color: #3498db;
             box-shadow: 0 0 0 2px #3498db;
         }
+
         .quantity-selector {
             display: flex;
             align-items: center;
         }
+
         .quantity-btn {
             width: 35px;
             height: 35px;
@@ -272,9 +323,11 @@
             align-items: center;
             user-select: none;
         }
+
         .quantity-btn:hover {
             background-color: #e0e0e0;
         }
+
         .quantity-input {
             width: 50px;
             height: 35px;
@@ -284,10 +337,12 @@
             border-right: none;
             padding: 0 5px;
         }
+
         .quantity-input:focus {
-             outline: none;
-             border-color: #3498db;
+            outline: none;
+            border-color: #3498db;
         }
+
         .add-to-cart {
             background: #2c3e50;
             color: white;
@@ -299,12 +354,15 @@
             margin-top: 20px;
             transition: background 0.3s;
         }
+
         .add-to-cart:hover {
             background: #2c3e50;
         }
+
         .related-products {
             margin-bottom: 40px;
         }
+
         .section-title {
             font-size: 1.5rem;
             margin-bottom: 20px;
@@ -312,39 +370,48 @@
             border-bottom: 2px solid #eee;
             text-align: center;
         }
+
         .products-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
         }
+
         .product-card {
             background: white;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s;
         }
+
         .product-card:hover {
             transform: translateY(-5px);
         }
+
         .product-card-img {
             height: 180px;
             overflow: hidden;
         }
+
         .product-card-img img {
             /* --- 修改：限制相关推荐商品图尺寸 --- */
             width: 100%;
             height: 100%;
-            object-fit: cover; /* 填充容器，可能裁剪 */
+            object-fit: cover;
+            /* 填充容器，可能裁剪 */
             /* --- 修改结束 --- */
             transition: transform 0.3s;
         }
+
         .product-card:hover .product-card-img img {
             transform: scale(1.05);
         }
+
         .product-card-info {
             padding: 15px;
         }
+
         .product-card-title {
             font-size: 1rem;
             margin-bottom: 8px;
@@ -354,21 +421,25 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
         .product-card-price {
             color: #2c3e50;
             font-weight: bold;
         }
+
         .product-card-rating {
             color: #f39c12;
             margin-bottom: 8px;
         }
+
         .reviews {
             background: white;
             border-radius: 8px;
             padding: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             margin-bottom: 30px;
         }
+
         .rating-summary {
             display: flex;
             align-items: center;
@@ -376,38 +447,46 @@
             padding-bottom: 20px;
             border-bottom: 1px solid #eee;
         }
+
         .average-rating {
             text-align: center;
             margin-right: 30px;
         }
+
         .average-score {
             font-size: 3rem;
             font-weight: bold;
             color: #333;
             line-height: 1;
         }
+
         .average-stars {
             color: #f39c12;
             font-size: 1.2rem;
             margin: 5px 0;
         }
-        .average-stars-span  {
+
+        .average-stars-span {
             color: #000000;
             font-size: 1.2rem;
             margin: 5px 0;
         }
+
         .total-reviews {
             color: #666;
             font-size: 0.9rem;
         }
+
         .rating-distribution {
             flex: 1;
         }
+
         .rating-bar {
             display: flex;
             align-items: center;
             margin-bottom: 8px;
         }
+
         .rating-progress {
             flex: 1;
             height: 8px;
@@ -416,36 +495,44 @@
             overflow: hidden;
             margin: 0 10px;
         }
+
         .rating-progress-fill {
             height: 100%;
             background: #f39c12;
         }
+
         .rating-percent {
             width: 40px;
             text-align: right;
             color: #666;
         }
+
         .review-item {
             border-bottom: 1px solid #eee;
             padding: 15px 0;
         }
+
         .review-header {
             display: flex;
             justify-content: space-between;
             margin-bottom: 10px;
             align-items: center;
         }
+
         .review-author {
             font-weight: bold;
         }
+
         .review-date {
             color: #888;
             font-size: 0.9rem;
         }
+
         .review-rating {
             color: #f39c12;
             margin-bottom: 8px;
         }
+
         .write-review-btn {
             background: #2c3e50;
             color: white;
@@ -458,13 +545,16 @@
             margin-left: auto;
             margin-right: auto;
         }
+
         .star-rating-input {
             direction: rtl;
             display: inline-block;
         }
+
         .star-rating-input input {
             display: none;
         }
+
         .star-rating-input label {
             color: #ddd;
             font-size: 1.8rem;
@@ -472,16 +562,19 @@
             cursor: pointer;
             transition: color 0.2s;
         }
-        .star-rating-input input:checked ~ label,
+
+        .star-rating-input input:checked~label,
         .star-rating-input label:hover,
-        .star-rating-input label:hover ~ label {
+        .star-rating-input label:hover~label {
             color: #f39c12;
         }
+
         footer {
             background: #2c3e50;
             color: white;
-            padding:0 30px;
+            padding: 0 30px;
         }
+
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -490,19 +583,23 @@
             flex-wrap: wrap;
             justify-content: space-between;
         }
+
         .footer-section {
             flex: 1;
             min-width: 200px;
             margin-bottom: 20px;
             text-align: center;
         }
+
         .footer-section h3 {
             margin-bottom: 15px;
             font-size: 1.2rem;
         }
+
         .footer-section ul li {
             margin-bottom: 8px;
         }
+
         .payment-methods {
             display: flex;
             flex-wrap: wrap;
@@ -510,16 +607,19 @@
             margin-top: 10px;
             justify-content: center;
         }
+
         .payment-methods i {
             font-size: 2rem;
             opacity: 0.8;
         }
+
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
             margin-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .modal {
             display: none;
             position: fixed;
@@ -527,11 +627,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 1000;
             justify-content: center;
             align-items: center;
         }
+
         .modal-content {
             background: white;
             border-radius: 8px;
@@ -541,11 +642,13 @@
             max-height: 80vh;
             overflow-y: auto;
         }
+
         .close-modal {
             float: right;
             font-size: 1.5rem;
             cursor: pointer;
         }
+
         .review-form textarea {
             width: 100%;
             padding: 10px;
@@ -555,24 +658,29 @@
             resize: vertical;
             min-height: 100px;
         }
+
         .star-rating {
             direction: rtl;
             margin-bottom: 15px;
         }
+
         .star-rating input {
             display: none;
         }
+
         .star-rating label {
             color: #ddd;
             font-size: 1.5rem;
             padding: 0 5px;
             cursor: pointer;
         }
-        .star-rating input:checked ~ label,
+
+        .star-rating input:checked~label,
         .star-rating label:hover,
-        .star-rating label:hover ~ label {
+        .star-rating label:hover~label {
             color: #f39c12;
         }
+
         .submit-review {
             background: #2c3e50;
             color: white;
@@ -582,9 +690,11 @@
             cursor: pointer;
             width: 100%;
         }
+
         .cart-items {
             margin: 20px 0;
         }
+
         .cart-item {
             display: flex;
             justify-content: space-between;
@@ -592,18 +702,22 @@
             border-bottom: 1px solid #eee;
             align-items: center;
         }
+
         .cart-item-info {
             flex: 1;
         }
+
         .cart-item-actions {
             display: flex;
             align-items: center;
         }
+
         .cart-item-price {
             margin-right: 15px;
             min-width: 80px;
             text-align: right;
         }
+
         .remove-from-cart {
             background: #e74c3c;
             color: white;
@@ -614,15 +728,18 @@
             font-size: 0.8rem;
             margin-left: 10px;
         }
+
         .remove-from-cart:hover {
             background: #c0392b;
         }
+
         .cart-total {
             font-weight: bold;
             font-size: 1.2rem;
             margin: 15px 0;
             text-align: right;
         }
+
         .checkout-btn {
             background: #2c3e50;
             color: white;
@@ -633,6 +750,7 @@
             cursor: pointer;
             font-size: 1rem;
         }
+
         /* 会员登录模态框样式 */
         .login-form input[type="text"],
         .login-form input[type="password"] {
@@ -643,10 +761,12 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
+
         .login-form .btn-group {
             display: flex;
             gap: 10px;
         }
+
         .login-form .btn-group button {
             flex: 1;
             padding: 10px;
@@ -655,24 +775,74 @@
             cursor: pointer;
             font-size: 1rem;
         }
+
         .login-btn {
             background-color: #2c3e50;
             color: white;
         }
+
         .register-btn {
             background-color: #f39c12;
             color: white;
         }
+
         .navFooterBackToTop {
             text-align: center;
             padding: 5px;
             cursor: pointer;
             margin-bottom: 30px;
         }
+
+        /* 商品规格参数区域样式 */
+        .product-specs-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .specs-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .spec-row {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .spec-row:last-child {
+            border-bottom: none;
+        }
+
+        .spec-label {
+            font-weight: bold;
+            color: #333;
+            flex: 0 0 120px;
+        }
+
+        .spec-value {
+            color: #666;
+            flex: 1;
+        }
+
+        .star-label {
+            width: 50px;
+            color: #666;
+            font-size: 1rem;
+            text-align: right;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
         @media (min-width: 769px) {
             .nav-toggle {
                 display: none;
             }
+
             nav ul {
                 display: flex !important;
                 flex-direction: row;
@@ -686,27 +856,32 @@
                 order: initial;
                 width: 100%;
             }
+
             nav ul li {
                 margin: 0 15px;
                 padding: 0;
                 border-bottom: none;
             }
         }
+
         @media (max-width: 992px) {
             .products-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
         }
+
         @media (max-width: 768px) {
             .header-content {
                 padding-bottom: 8px;
             }
+
             .nav-toggle {
                 display: block;
                 font-size: 1.5rem;
                 cursor: pointer;
                 margin-right: 15px;
             }
+
             nav ul {
                 display: none;
                 flex-direction: column;
@@ -715,108 +890,138 @@
                 left: 0;
                 width: 100%;
                 background: white;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
             }
+
             nav ul.show {
                 display: flex;
             }
+
             nav ul li {
                 margin: 0;
                 padding: 12px 20px;
                 border-bottom: none;
             }
+
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
             }
+
             .search-box input {
                 min-width: 80px;
             }
+
             .product-card-info {
                 padding: 10px;
             }
+
             .product-card-img {
                 height: 150px;
             }
+
             .rating-summary {
                 flex-direction: column;
                 align-items: center;
             }
+
             .average-rating {
                 margin-right: 0;
                 margin-bottom: 20px;
                 display: flex;
                 align-items: center;
             }
+
             .average-score {
                 font-size: 2rem;
                 margin-right: 10px;
             }
+
             .rating-distribution {
                 width: 100%;
             }
+
             .quantity-input {
                 width: 40px;
             }
         }
+
         @media (max-width: 576px) {
             .header-content {
                 padding-bottom: 8px;
             }
+
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
             }
-            .product-gallery, .product-info {
+
+            .product-gallery,
+            .product-info {
                 border: none;
             }
+
             .main-image {
                 height: 300px;
             }
+
             .thumbnail {
                 width: 60px;
                 height: 60px;
             }
+
             .footer-section {
                 min-width: 100%;
             }
+
             .product-card-price {
                 font-size: 0.9rem;
             }
+
             .product-card-img {
                 height: 130px;
             }
+
             .average-rating {
                 flex-direction: column;
                 align-items: center;
             }
+
             .average-score {
                 margin-bottom: 5px;
             }
         }
+
         @media (max-width: 400px) {
             .products-grid {
-                grid-template-columns: repeat(1, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
+
             .header-top {
-                padding: 10px 15px; /* 调整 .header-top 的移动端内边距 */
+                padding: 10px 15px;
+                /* 调整 .header-top 的移动端内边距 */
             }
+
             .header-content {
                 padding-bottom: 8px;
             }
+
             .logo {
                 font-size: 1.2rem;
             }
+
             .search-box {
                 margin-right: 15px;
                 margin-left: 15px;
             }
+
             .search-box input {
                 min-width: 60px;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="header-content">
@@ -895,7 +1100,8 @@
                     <div class="option-group">
                         <span class="option-label">颜色:</span>
                         <div class="color-options">
-                            <div class="color-option selected" data-color="red" style="background-color: #e74c3c;"></div>
+                            <div class="color-option selected" data-color="red" style="background-color: #e74c3c;">
+                            </div>
                             <div class="color-option" data-color="blue" style="background-color: #3498db;"></div>
                             <div class="color-option" data-color="green" style="background-color: #2ecc71;"></div>
                             <div class="color-option" data-color="black" style="background-color: #2c3e50;"></div>
@@ -914,6 +1120,33 @@
                     这是一段关于这个优质商品的详细描述。产品采用高质量材料制成，经过精心设计，确保满足您的各种需求。产品特性包括耐用性、多功能性和美观设计。
                 </p>
                 <button class="add-to-cart">加入购物车</button>
+            </div>
+        </section>
+
+        <!-- 新增：独立的商品规格参数区域（放在 product-detail 之后） -->
+        <section class="product-specs-section">
+            <h2 class="section-title">规格参数</h2>
+            <div class="specs-table">
+                <div class="spec-row">
+                    <div class="spec-label">长度</div>
+                    <div class="spec-value">30 cm</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">宽度</div>
+                    <div class="spec-value">20 cm</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">高度</div>
+                    <div class="spec-value">15 cm</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">重量</div>
+                    <div class="spec-value">1.2 kg</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">型号</div>
+                    <div class="spec-value">SP-2025</div>
+                </div>
             </div>
         </section>
         <section class="related-products">
@@ -1010,30 +1243,35 @@
                 </div>
                 <div class="rating-distribution">
                     <div class="rating-bar">
+                        <span class="star-label">5 star</span>
                         <div class="rating-progress">
-                            <div class="rating-progress-fill" style="width: 85%;"></div>
+                            <div class="rating-progress-fill" style="width: 95%;"></div>
                         </div>
                         <div class="rating-percent">95%</div>
                     </div>
                     <div class="rating-bar">
+                        <span class="star-label">4 star</span>
                         <div class="rating-progress">
                             <div class="rating-progress-fill" style="width: 5%;"></div>
                         </div>
                         <div class="rating-percent">5%</div>
                     </div>
                     <div class="rating-bar">
+                        <span class="star-label">3 star</span>
                         <div class="rating-progress">
                             <div class="rating-progress-fill" style="width: 0%;"></div>
                         </div>
                         <div class="rating-percent">0%</div>
                     </div>
                     <div class="rating-bar">
+                        <span class="star-label">2 star</span>
                         <div class="rating-progress">
                             <div class="rating-progress-fill" style="width: 0%;"></div>
                         </div>
                         <div class="rating-percent">0%</div>
                     </div>
                     <div class="rating-bar">
+                        <span class="star-label">1 star</span>
                         <div class="rating-progress">
                             <div class="rating-progress-fill" style="width: 0%;"></div>
                         </div>
@@ -1124,7 +1362,7 @@
                 <input type="text" placeholder="用户名/邮箱" required>
                 <input type="password" placeholder="密码" required>
                 <div class="btn-group">
-                    <button type="button" class="register-btn">注册</button>
+                    <button type="submit" class="register-btn">注册</button>
                     <button type="submit" class="login-btn">登录</button>
                 </div>
             </form>
@@ -1164,22 +1402,22 @@
         </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const navToggle = document.querySelector('.nav-toggle');
             const navMenu = document.querySelector('nav ul');
-            navToggle.addEventListener('click', function(e) {
+            navToggle.addEventListener('click', function (e) {
                 e.stopPropagation();
                 navMenu.classList.toggle('show');
             });
-            document.addEventListener('click', function(e) {
+            document.addEventListener('click', function (e) {
                 if (!e.target.closest('nav') && navMenu.classList.contains('show')) {
                     navMenu.classList.remove('show');
                 }
             });
-            navMenu.addEventListener('click', function(e) {
+            navMenu.addEventListener('click', function (e) {
                 e.stopPropagation();
             });
-            window.addEventListener('resize', function() {
+            window.addEventListener('resize', function () {
                 if (window.innerWidth > 768 && navMenu.classList.contains('show')) {
                     navMenu.classList.remove('show');
                 }
@@ -1187,14 +1425,14 @@
             const thumbnails = document.querySelectorAll('.thumbnail img');
             const mainImg = document.getElementById('main-img');
             thumbnails.forEach(thumb => {
-                thumb.addEventListener('click', function() {
+                thumb.addEventListener('click', function () {
                     mainImg.src = this.getAttribute('data-full');
                     mainImg.alt = this.alt;
                 });
             });
             const colorOptions = document.querySelectorAll('.color-option');
             colorOptions.forEach(option => {
-                option.addEventListener('click', function() {
+                option.addEventListener('click', function () {
                     colorOptions.forEach(opt => opt.classList.remove('selected'));
                     this.classList.add('selected');
                 });
@@ -1202,17 +1440,17 @@
             const quantityInput = document.getElementById('quantity-input');
             const decreaseBtn = document.querySelector('.quantity-btn.decrease');
             const increaseBtn = document.querySelector('.quantity-btn.increase');
-            increaseBtn.addEventListener('click', function() {
+            increaseBtn.addEventListener('click', function () {
                 let currentValue = parseInt(quantityInput.value) || 0;
                 quantityInput.value = currentValue + 1;
             });
-            decreaseBtn.addEventListener('click', function() {
+            decreaseBtn.addEventListener('click', function () {
                 let currentValue = parseInt(quantityInput.value) || 0;
                 if (currentValue > 1) {
                     quantityInput.value = currentValue - 1;
                 }
             });
-            quantityInput.addEventListener('input', function() {
+            quantityInput.addEventListener('input', function () {
                 let value = this.value;
                 value = value.replace(/[^0-9]/g, '');
                 if (value === '' || parseInt(value) < 1) {
@@ -1227,11 +1465,11 @@
             const cartTotal = document.querySelector('.cart-total');
             const addToCartBtn = document.querySelector('.add-to-cart');
             let cart = [];
-            cartIcon.addEventListener('click', function() {
+            cartIcon.addEventListener('click', function () {
                 updateCartModal();
                 cartModal.style.display = 'flex';
             });
-            addToCartBtn.addEventListener('click', function() {
+            addToCartBtn.addEventListener('click', function () {
                 const selectedColorElement = document.querySelector('.color-option.selected');
                 const selectedColor = selectedColorElement ? selectedColorElement.getAttribute('data-color') : '默认颜色';
                 const quantity = parseInt(quantityInput.value) || 1;
@@ -1282,7 +1520,7 @@
                         `;
                         cartItems.appendChild(cartItemEl);
                         const removeButton = cartItemEl.querySelector('.remove-from-cart');
-                        removeButton.addEventListener('click', function() {
+                        removeButton.addEventListener('click', function () {
                             const idToRemove = this.getAttribute('data-id');
                             const itemIndex = cart.findIndex(cartItem => `${cartItem.name}-${cartItem.color}` === idToRemove);
                             if (itemIndex !== -1) {
@@ -1297,24 +1535,24 @@
             }
             const reviewBtn = document.querySelector('.write-review-btn');
             const reviewModal = document.getElementById('review-modal');
-            reviewBtn.addEventListener('click', function() {
+            reviewBtn.addEventListener('click', function () {
                 reviewModal.style.display = 'flex';
             });
             // 会员图标点击事件
             const memberIcon = document.getElementById('member-icon');
             const memberModal = document.getElementById('member-modal');
-            memberIcon.addEventListener('click', function() {
+            memberIcon.addEventListener('click', function () {
                 memberModal.style.display = 'flex';
             });
             const closeButtons = document.querySelectorAll('.close-modal');
             closeButtons.forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     reviewModal.style.display = 'none';
                     cartModal.style.display = 'none';
                     memberModal.style.display = 'none'; // 关闭会员模态框
                 });
             });
-            window.addEventListener('click', function(event) {
+            window.addEventListener('click', function (event) {
                 if (event.target === reviewModal) {
                     reviewModal.style.display = 'none';
                 }
@@ -1327,18 +1565,10 @@
             });
             // --- 修改：评论表单提交事件 ---
             const reviewForm = document.querySelector('.review-form');
-            reviewForm.addEventListener('submit', function(e) {
+            reviewForm.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const rating = document.querySelector('input[name="rating"]:checked');
                 const comment = document.querySelector('.review-form textarea').value;
-                if (!rating) {
-                    alert('请选择评分');
-                    return;
-                }
-                if (!comment.trim()) {
-                    alert('请填写评论内容');
-                    return;
-                }
                 // 关闭评论模态框
                 reviewModal.style.display = 'none';
                 // 弹出会员登录模态框
@@ -1346,41 +1576,35 @@
             });
             // --- 修改结束 ---
             const loginForm = document.querySelector('.login-form');
-            loginForm.addEventListener('submit', function(e) {
+            loginForm.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const username = this.querySelector('input[type="text"]').value;
                 const password = this.querySelector('input[type="password"]').value;
-                // 这里可以添加实际的登录验证逻辑
-                alert(`登录尝试 - 用户名: ${username}, 密码: ${password} (请实现实际登录逻辑)`);
+                apipost("/login", { username: username, password: password})
                 // 登录成功后，可以关闭模态框
                 // memberModal.style.display = 'none';
             });
             const registerBtn = document.querySelector('.register-btn');
-            registerBtn.addEventListener('click', function() {
-                // 这里可以跳转到注册页面或显示注册表单
-                alert('跳转到注册页面或显示注册表单 (请实现实际注册逻辑)');
+            registerBtn.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const username = this.querySelector('input[type="text"]').value;
+                const password = this.querySelector('input[type="password"]').value;
+                apipost("/login", { username: username, password: password})
+                // 登录成功后，可以关闭模态框
+                // memberModal.style.display = 'none';
             });
-            const ratingInputs = document.querySelectorAll('.star-rating-input input');
-            ratingInputs.forEach(input => {
-                input.addEventListener('change', function() {
-                    alert(`您给出了${this.value}星评价！`);
-                });
-            });
+            
             const searchInput = document.getElementById('search-input');
             const searchButton = document.getElementById('search-button');
             function performSearch() {
                 const query = searchInput.value.trim();
-                if (query) {
-                    alert(`执行搜索: ${query}`);
-                } else {
-                    alert('请输入搜索关键词');
-                }
+                apipost("/search", { query: query})
             }
             if (searchButton) {
                 searchButton.addEventListener('click', performSearch);
             }
             if (searchInput) {
-                searchInput.addEventListener('keypress', function(event) {
+                searchInput.addEventListener('keypress', function (event) {
                     if (event.key === 'Enter') {
                         performSearch();
                     }
@@ -1392,11 +1616,50 @@
             }
             backToTopBtn.addEventListener('click', topFunction);
             const checkoutBtn = document.querySelector('.checkout-btn');
-            checkoutBtn.addEventListener('click', function() {
+            checkoutBtn.addEventListener('click', function () {
                 cartModal.style.display = 'none';
                 memberModal.style.display = 'flex';
             });
         });
+        function apipost(url, data = {}, options = {}) {
+            const {
+                timeout = 5000,
+                headers = {}
+            } = options;
+            const defaultHeaders = {
+                'Content-Type': 'application/json',
+                ...headers
+            };
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), timeout);
+            return fetch(url, {
+                method: 'POST',
+                headers: defaultHeaders,
+                body: JSON.stringify(data),
+                signal: controller.signal
+            }).then(response => {
+                    clearTimeout(timeoutId);
+                    if (!response.ok) {
+                        return response.text().then(text => {
+                            throw new Error(`HTTP ${response.status}: ${text || response.statusText}`);
+                        });
+                    }
+                    const contentType = response.headers.get('content-type');
+                    if (contentType && contentType.includes('application/json')) {
+                        return response.json();
+                    } else {
+                        return response.text();
+                    }
+                })
+                .catch(error => {
+                    clearTimeout(timeoutId);
+                    if (error.name === 'AbortError') {
+                        throw new Error('Request timeout');
+                    }
+                    throw error;
+                });
+        }
     </script>
 </body>
+
 </html>
