@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="高品质商品详情页 - 提供优质购物体验">
-    <title>优质商品 - 您的品牌名称</title>
+    <meta name="description" content="描述测试">
+    <title>标题测试</title>
     <!-- 引入 Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preload" as="image" href="img/2.webp">
     <style>
         /* 重置样式 */
         * {
@@ -1055,9 +1056,9 @@
             <nav>
                 <ul>
                     <li><a href="#">首页</a></li>
-                    <li><a href="#">商品分类</a></li>
-                    <li><a href="#">热卖商品</a></li>
-                    <li><a href="#">新品上市</a></li>
+                    <li><a href="#">栏目一</a></li>
+                    <li><a href="#">栏目二</a></li>
+                    <li><a href="#">栏目三</a></li>
                 </ul>
             </nav>
         </div>
@@ -1066,7 +1067,7 @@
         <section class="product-detail">
             <div class="product-gallery">
                 <div class="main-image">
-                    <img src="img/2.webp" alt="主商品图片" id="main-img">
+                    <img src="img/2.webp" alt="主商品图片" id="main-img" loading="eager" fetchpriority="high">
                 </div>
                 <div class="thumbnails">
                     <div class="thumbnail">
@@ -1324,16 +1325,16 @@
         <div class="navFooterBackToTop">
             <a id="backToTopBtn">
                 <i class="fas fa-chevron-up"></i>
-                <span>返回顶部</span>
+                <span>Back to top</span>
             </a>
         </div>
         <div class="footer-content">
             <div class="footer-section">
                 <h3>购物指南</h3>
                 <ul>
-                    <li><a href="#">购物流程</a></li>
-                    <li><a href="#">会员介绍</a></li>
-                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">栏目四</a></li>
+                    <li><a href="#">栏目五</a></li>
+                    <li><a href="#">栏目六</a></li>
                 </ul>
             </div>
             <div class="footer-section">
