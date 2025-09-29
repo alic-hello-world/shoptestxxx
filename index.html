@@ -468,6 +468,13 @@
         font-size: 1.2rem;
         margin: 5px 0;
       }
+
+      .average-stars-span {
+        color: #000000;
+        font-size: 1.2rem;
+        margin: 5px 0;
+      }
+
       .total-reviews {
         color: #666;
         font-size: 0.9rem;
@@ -824,7 +831,16 @@
         color: #666;
         flex: 1;
       }
-      
+
+      .star-label {
+        width: 50px;
+        color: #666;
+        font-size: 1rem;
+        text-align: right;
+        margin-right: 10px;
+        flex-shrink: 0;
+      }
+
       @media (min-width: 769px) {
         .nav-toggle {
           display: none;
@@ -1541,21 +1557,13 @@
               const cartItemEl = document.createElement("div");
               cartItemEl.classList.add("cart-item");
               const itemId = `${item.name}-${item.color}`;
-              cartItemEl.innerHTML = `
-                            <div class="cart-item-info">
-                                <h4>${item.name}</h4>
-                                <p>颜色: ${item.color}</p>
-                                <p>¥${item.price.toFixed(2)} x ${
-                item.quantity
-              }</p>
-                            </div>
-                            <div class="cart-item-actions">
-                                <span class="cart-item-price">¥${itemTotal.toFixed(
-                                  2
-                                )}</span>
-                                <button class="remove-from-cart" data-id="${itemId}">删除</button>
-                            </div>
-                        `;
+              cartItemEl.innerHTML = `<div class="cart-item-info"><h4>${item.name}</h4><p>颜色: ${item.color}</p><p>¥${item.price.toFixed(2)} x ${item.quantity}</p>
+                </div>
+                <div class="cart-item-actions">
+                <span class="cart-item-price">¥${itemTotal.toFixed(2)}
+                </span>
+                <button class="remove-from-cart" data-id="${itemId}">删除</button>
+                </div>`;
               cartItems.appendChild(cartItemEl);
               const removeButton =
                 cartItemEl.querySelector(".remove-from-cart");
