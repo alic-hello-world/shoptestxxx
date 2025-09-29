@@ -1,1666 +1,1715 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="描述测试">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="描述测试" />
     <title>标题测试</title>
     <!-- 引入 Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preload" as="image" href="img/2.webp">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="preload" as="image" href="img/2.webp" />
     <style>
-        /* 重置样式 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
+      /* 重置样式 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+      }
 
-        body {
-            color: #333;
-            line-height: 1.6;
-            background-color: #f8f9fa;
-            min-height: 200vh;
-        }
+      body {
+        color: #333;
+        line-height: 1.6;
+        background-color: #f8f9fa;
+        min-height: 200vh;
+      }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
 
-        ul {
-            list-style: none;
-        }
+      ul {
+        list-style: none;
+      }
 
-        /* 头部样式 */
-        header {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+      /* 头部样式 */
+      header {
+        background-color: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
 
-        /* header-content 样式，用于对齐和限制最大宽度 */
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-            /* 左右内边距 */
-        }
+      /* header-content 样式，用于对齐和限制最大宽度 */
+      .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        /* 左右内边距 */
+      }
 
-        .header-top {
-            /* padding: 15px 20px; 原始样式被注释或删除 */
-            padding: 15px 0;
-            /* 只保留上下 padding，左右为0以对齐 .header-content */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      .header-top {
+        /* padding: 15px 20px; 原始样式被注释或删除 */
+        padding: 15px 0;
+        /* 只保留上下 padding，左右为0以对齐 .header-content */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        .left-menu {
-            display: flex;
-            align-items: center;
-        }
+      .left-menu {
+        display: flex;
+        align-items: center;
+      }
 
-        .nav-toggle {
-            font-size: 1.5rem;
-            cursor: pointer;
-            margin-right: 15px;
-        }
+      .nav-toggle {
+        font-size: 1.5rem;
+        cursor: pointer;
+        margin-right: 15px;
+      }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #4a4a4a;
-        }
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #4a4a4a;
+      }
 
-        .search-cart {
-            display: flex;
-            align-items: center;
-        }
+      .search-cart {
+        display: flex;
+        align-items: center;
+      }
 
-        /* --- 修改：搜索框样式 --- */
-        .search-box {
-            display: flex;
-            align-items: center;
-            background: #f1f1f1;
-            border-radius: 5px;
-            flex-grow: 1;
-            border: 2px solid #2c3e50;
-        }
+      /* --- 修改：搜索框样式 --- */
+      .search-box {
+        display: flex;
+        align-items: center;
+        background: #f1f1f1;
+        border-radius: 5px;
+        flex-grow: 1;
+        border: 2px solid #2c3e50;
+      }
 
-        .search-box input {
-            border: none;
-            background: transparent;
-            flex-grow: 1;
-            min-width: 100px;
-            outline: none;
-            padding: 5px;
-            /* 添加内边距使输入框文字更舒适 */
-        }
+      .search-box input {
+        border: none;
+        background: transparent;
+        flex-grow: 1;
+        min-width: 100px;
+        outline: none;
+        padding: 5px;
+        /* 添加内边距使输入框文字更舒适 */
+      }
 
-        .search-box .search-button {
-            background: #2c3e50;
-            color: #FFF;
-            border: none;
-            cursor: pointer;
-            padding: 5px 10px;
-            /* 按钮内边距 */
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            /* 图标和文字之间的间距 */
-            font-size: 0.9rem;
-            /* 调整字体大小 */
-            color: #FFF;
-            /* 按钮文字颜色 */
-        }
+      .search-box .search-button {
+        background: #2c3e50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        padding: 5px 10px;
+        /* 按钮内边距 */
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        /* 图标和文字之间的间距 */
+        font-size: 0.9rem;
+        /* 调整字体大小 */
+        color: #fff;
+        /* 按钮文字颜色 */
+      }
 
+      /* --- 修改结束 --- */
+      /* 会员图标样式 */
+      .member-icon {
+        position: relative;
+        font-size: 1.2rem;
+        cursor: pointer;
+        flex-shrink: 0;
+        margin-right: 15px;
+        /* 与购物车图标保持间距 */
+      }
+
+      .cart-icon {
+        position: relative;
+        font-size: 1.2rem;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      .cart-count {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: #e74c3c;
+        color: white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        font-size: 0.7rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 101;
+        padding: 0;
+        margin: 0;
+        order: 3;
+        width: 100%;
+      }
+
+      nav ul li {
+        margin: 0;
+        padding: 12px 20px;
+        border-bottom: 1px solid #eee;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 0 15px;
+      }
+
+      .product-detail {
+        display: flex;
+        flex-wrap: wrap;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+      }
+
+      .product-gallery {
+        flex: 1;
+        min-width: 300px;
+        padding: 20px;
+      }
+
+      .main-image {
+        width: 100%;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        margin-bottom: 15px;
+      }
+
+      .main-image img {
+        /* --- 修改：限制主图尺寸 --- */
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        /* 保持宽高比，完整显示 */
         /* --- 修改结束 --- */
-        /* 会员图标样式 */
-        .member-icon {
-            position: relative;
-            font-size: 1.2rem;
-            cursor: pointer;
-            flex-shrink: 0;
-            margin-right: 15px;
-            /* 与购物车图标保持间距 */
-        }
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
 
-        .cart-icon {
-            position: relative;
-            font-size: 1.2rem;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
+      .thumbnails {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
 
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #e74c3c;
-            color: white;
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            font-size: 0.7rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+      .thumbnail {
+        width: 70px;
+        height: 70px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .thumbnail img {
+        /* --- 修改：限制缩略图尺寸 --- */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* 填充容器，可能裁剪 */
+        /* --- 修改结束 --- */
+      }
+
+      .product-info {
+        flex: 1;
+        min-width: 300px;
+        padding: 20px;
+        border-left: 1px solid #eee;
+      }
+
+      .product-title {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+      }
+
+      .product-price {
+        font-size: 1.5rem;
+        color: #e74c3c;
+        margin-bottom: 15px;
+      }
+
+      .product-description {
+        margin-bottom: 20px;
+        color: #666;
+      }
+
+      .product-options {
+        margin-bottom: 20px;
+      }
+
+      .option-group {
+        margin-bottom: 15px;
+      }
+
+      .option-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      .color-options {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .color-option {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 2px solid #ddd;
+        cursor: pointer;
+        transition: border-color 0.2s, transform 0.2s;
+      }
+
+      .color-option:hover {
+        border-color: #3498db;
+        transform: scale(1.1);
+      }
+
+      .color-option.selected {
+        border-color: #3498db;
+        box-shadow: 0 0 0 2px #3498db;
+      }
+
+      .quantity-selector {
+        display: flex;
+        align-items: center;
+      }
+
+      .quantity-btn {
+        width: 35px;
+        height: 35px;
+        background-color: #f1f1f1;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+      }
+
+      .quantity-btn:hover {
+        background-color: #e0e0e0;
+      }
+
+      .quantity-input {
+        width: 50px;
+        height: 35px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-left: none;
+        border-right: none;
+        padding: 0 5px;
+      }
+
+      .quantity-input:focus {
+        outline: none;
+        border-color: #3498db;
+      }
+
+      .add-to-cart {
+        background: #2c3e50;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 20px;
+        transition: background 0.3s;
+      }
+
+      .add-to-cart:hover {
+        background: #2c3e50;
+      }
+
+      .related-products {
+        margin-bottom: 40px;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #eee;
+        text-align: center;
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .product-card {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .product-card-img {
+        height: 180px;
+        overflow: hidden;
+      }
+
+      .product-card-img img {
+        /* --- 修改：限制相关推荐商品图尺寸 --- */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* 填充容器，可能裁剪 */
+        /* --- 修改结束 --- */
+        transition: transform 0.3s;
+      }
+
+      .product-card:hover .product-card-img img {
+        transform: scale(1.05);
+      }
+
+      .product-card-info {
+        padding: 15px;
+      }
+
+      .product-card-title {
+        font-size: 1rem;
+        margin-bottom: 8px;
+        display: block;
+        height: 1.4em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .product-card-price {
+        color: #2c3e50;
+        font-weight: bold;
+      }
+
+      .product-card-rating {
+        color: #f39c12;
+        margin-bottom: 8px;
+      }
+
+      .reviews {
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+      }
+
+      .rating-summary {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .average-rating {
+        text-align: center;
+        margin-right: 30px;
+      }
+
+      .average-score {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #333;
+        line-height: 1;
+      }
+
+      .average-stars {
+        color: #f39c12;
+        font-size: 1.2rem;
+        margin: 5px 0;
+      }
+      .total-reviews {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .rating-distribution {
+        flex: 1;
+      }
+
+      .rating-bar {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .rating-progress {
+        flex: 1;
+        height: 8px;
+        background: #eee;
+        border-radius: 4px;
+        overflow: hidden;
+        margin: 0 10px;
+      }
+
+      .rating-progress-fill {
+        height: 100%;
+        background: #f39c12;
+      }
+
+      .rating-percent {
+        width: 40px;
+        text-align: right;
+        color: #666;
+      }
+
+      .review-item {
+        border-bottom: 1px solid #eee;
+        padding: 15px 0;
+      }
+
+      .review-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        align-items: center;
+      }
+
+      .review-author {
+        font-weight: bold;
+      }
+
+      .review-date {
+        color: #888;
+        font-size: 0.9rem;
+      }
+
+      .review-rating {
+        color: #f39c12;
+        margin-bottom: 8px;
+      }
+
+      .write-review-btn {
+        background: #2c3e50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        margin-top: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .star-rating-input {
+        direction: rtl;
+        display: inline-block;
+      }
+
+      .star-rating-input input {
+        display: none;
+      }
+
+      .star-rating-input label {
+        color: #ddd;
+        font-size: 1.8rem;
+        padding: 0 3px;
+        cursor: pointer;
+        transition: color 0.2s;
+      }
+
+      .star-rating-input input:checked ~ label,
+      .star-rating-input label:hover,
+      .star-rating-input label:hover ~ label {
+        color: #f39c12;
+      }
+
+      footer {
+        background: #2c3e50;
+        color: white;
+        padding: 0 30px;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .footer-section {
+        flex: 1;
+        min-width: 200px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .footer-section h3 {
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 8px;
+      }
+
+      .payment-methods {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+        justify-content: center;
+      }
+
+      .payment-methods i {
+        font-size: 2rem;
+        opacity: 0.8;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        margin-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        background: white;
+        border-radius: 8px;
+        padding: 25px;
+        width: 90%;
+        max-width: 500px;
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+
+      .close-modal {
+        float: right;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      .review-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .star-rating {
+        direction: rtl;
+        margin-bottom: 15px;
+      }
+
+      .star-rating input {
+        display: none;
+      }
+
+      .star-rating label {
+        color: #ddd;
+        font-size: 1.5rem;
+        padding: 0 5px;
+        cursor: pointer;
+      }
+
+      .star-rating input:checked ~ label,
+      .star-rating label:hover,
+      .star-rating label:hover ~ label {
+        color: #f39c12;
+      }
+
+      .submit-review {
+        background: #2c3e50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      .cart-items {
+        margin: 20px 0;
+      }
+
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+        align-items: center;
+      }
+
+      .cart-item-info {
+        flex: 1;
+      }
+
+      .cart-item-actions {
+        display: flex;
+        align-items: center;
+      }
+
+      .cart-item-price {
+        margin-right: 15px;
+        min-width: 80px;
+        text-align: right;
+      }
+
+      .remove-from-cart {
+        background: #e74c3c;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        margin-left: 10px;
+      }
+
+      .remove-from-cart:hover {
+        background: #c0392b;
+      }
+
+      .cart-total {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin: 15px 0;
+        text-align: right;
+      }
+
+      .checkout-btn {
+        background: #2c3e50;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 20px;
+        width: 100%;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      /* 会员登录模态框样式 */
+      .login-form input[type="text"],
+      .login-form input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      .login-form .btn-group {
+        display: flex;
+        gap: 10px;
+      }
+
+      .login-form .btn-group button {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .login-btn {
+        background-color: #2c3e50;
+        color: white;
+      }
+
+      .register-btn {
+        background-color: #f39c12;
+        color: white;
+      }
+
+      .navFooterBackToTop {
+        text-align: center;
+        padding-top: 8px;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+
+      /* 商品规格参数区域样式 */
+      .product-specs-section {
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+      }
+
+      .specs-table {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .spec-row {
+        display: flex;
+        padding: 12px 0;
+        border-bottom: 1px solid #f1f1f1;
+      }
+
+      .spec-row:last-child {
+        border-bottom: none;
+      }
+
+      .spec-label {
+        font-weight: bold;
+        color: #333;
+        flex: 0 0 120px;
+      }
+
+      .spec-value {
+        color: #666;
+        flex: 1;
+      }
+      
+      @media (min-width: 769px) {
+        .nav-toggle {
+          display: none;
         }
 
         nav ul {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: white;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            z-index: 101;
-            padding: 0;
-            margin: 0;
-            order: 3;
-            width: 100%;
+          display: flex !important;
+          flex-direction: row;
+          position: static;
+          width: auto;
+          background: #f8f9fa;
+          padding: 10px 0;
+          justify-content: center;
+          box-shadow: none;
+          margin: 8px 0;
+          order: initial;
+          width: 100%;
         }
 
         nav ul li {
-            margin: 0;
-            padding: 12px 20px;
-            border-bottom: 1px solid #eee;
+          margin: 0 15px;
+          padding: 0;
+          border-bottom: none;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .products-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-content {
+          padding-bottom: 8px;
+        }
+
+        .nav-toggle {
+          display: block;
+          font-size: 1.5rem;
+          cursor: pointer;
+          margin-right: 15px;
+        }
+
+        nav ul {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: white;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         }
 
         nav ul.show {
-            display: flex;
+          display: flex;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
-
-        .product-detail {
-            display: flex;
-            flex-wrap: wrap;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            margin-bottom: 30px;
-        }
-
-        .product-gallery {
-            flex: 1;
-            min-width: 300px;
-            padding: 20px;
-        }
-
-        .main-image {
-            width: 100%;
-            height: 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            margin-bottom: 15px;
-        }
-
-        .main-image img {
-            /* --- 修改：限制主图尺寸 --- */
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            /* 保持宽高比，完整显示 */
-            /* --- 修改结束 --- */
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .thumbnails {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .thumbnail {
-            width: 70px;
-            height: 70px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .thumbnail img {
-            /* --- 修改：限制缩略图尺寸 --- */
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* 填充容器，可能裁剪 */
-            /* --- 修改结束 --- */
-        }
-
-        .product-info {
-            flex: 1;
-            min-width: 300px;
-            padding: 20px;
-            border-left: 1px solid #eee;
-        }
-
-        .product-title {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        .product-price {
-            font-size: 1.5rem;
-            color: #e74c3c;
-            margin-bottom: 15px;
-        }
-
-        .product-description {
-            margin-bottom: 20px;
-            color: #666;
-        }
-
-        .product-options {
-            margin-bottom: 20px;
-        }
-
-        .option-group {
-            margin-bottom: 15px;
-        }
-
-        .option-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        .color-options {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .color-option {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: 2px solid #ddd;
-            cursor: pointer;
-            transition: border-color 0.2s, transform 0.2s;
-        }
-
-        .color-option:hover {
-            border-color: #3498db;
-            transform: scale(1.1);
-        }
-
-        .color-option.selected {
-            border-color: #3498db;
-            box-shadow: 0 0 0 2px #3498db;
-        }
-
-        .quantity-selector {
-            display: flex;
-            align-items: center;
-        }
-
-        .quantity-btn {
-            width: 35px;
-            height: 35px;
-            background-color: #f1f1f1;
-            border: 1px solid #ddd;
-            cursor: pointer;
-            font-size: 1.2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            user-select: none;
-        }
-
-        .quantity-btn:hover {
-            background-color: #e0e0e0;
-        }
-
-        .quantity-input {
-            width: 50px;
-            height: 35px;
-            text-align: center;
-            border: 1px solid #ddd;
-            border-left: none;
-            border-right: none;
-            padding: 0 5px;
-        }
-
-        .quantity-input:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-
-        .add-to-cart {
-            background: #2c3e50;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 1rem;
-            margin-top: 20px;
-            transition: background 0.3s;
-        }
-
-        .add-to-cart:hover {
-            background: #2c3e50;
-        }
-
-        .related-products {
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #eee;
-            text-align: center;
+        nav ul li {
+          margin: 0;
+          padding: 12px 20px;
+          border-bottom: none;
         }
 
         .products-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 15px;
         }
 
-        .product-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-card-img {
-            height: 180px;
-            overflow: hidden;
-        }
-
-        .product-card-img img {
-            /* --- 修改：限制相关推荐商品图尺寸 --- */
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* 填充容器，可能裁剪 */
-            /* --- 修改结束 --- */
-            transition: transform 0.3s;
-        }
-
-        .product-card:hover .product-card-img img {
-            transform: scale(1.05);
+        .search-box input {
+          min-width: 80px;
         }
 
         .product-card-info {
-            padding: 15px;
+          padding: 10px;
         }
 
-        .product-card-title {
-            font-size: 1rem;
-            margin-bottom: 8px;
-            display: block;
-            height: 1.4em;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .product-card-price {
-            color: #2c3e50;
-            font-weight: bold;
-        }
-
-        .product-card-rating {
-            color: #f39c12;
-            margin-bottom: 8px;
-        }
-
-        .reviews {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            margin-bottom: 30px;
+        .product-card-img {
+          height: 150px;
         }
 
         .rating-summary {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
+          flex-direction: column;
+          align-items: center;
         }
 
         .average-rating {
-            text-align: center;
-            margin-right: 30px;
+          margin-right: 0;
+          margin-bottom: 20px;
+          display: flex;
+          align-items: center;
         }
 
         .average-score {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #333;
-            line-height: 1;
-        }
-
-        .average-stars {
-            color: #f39c12;
-            font-size: 1.2rem;
-            margin: 5px 0;
-        }
-
-        .average-stars-span {
-            color: #000000;
-            font-size: 1.2rem;
-            margin: 5px 0;
-        }
-
-        .total-reviews {
-            color: #666;
-            font-size: 0.9rem;
+          font-size: 2rem;
+          margin-right: 10px;
         }
 
         .rating-distribution {
-            flex: 1;
+          width: 100%;
         }
 
-        .rating-bar {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
+        .quantity-input {
+          width: 40px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .header-content {
+          padding-bottom: 8px;
         }
 
-        .rating-progress {
-            flex: 1;
-            height: 8px;
-            background: #eee;
-            border-radius: 4px;
-            overflow: hidden;
-            margin: 0 10px;
+        .products-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
         }
 
-        .rating-progress-fill {
-            height: 100%;
-            background: #f39c12;
+        .product-gallery,
+        .product-info {
+          border: none;
         }
 
-        .rating-percent {
-            width: 40px;
-            text-align: right;
-            color: #666;
+        .main-image {
+          height: 300px;
         }
 
-        .review-item {
-            border-bottom: 1px solid #eee;
-            padding: 15px 0;
-        }
-
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            align-items: center;
-        }
-
-        .review-author {
-            font-weight: bold;
-        }
-
-        .review-date {
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        .review-rating {
-            color: #f39c12;
-            margin-bottom: 8px;
-        }
-
-        .write-review-btn {
-            background: #2c3e50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            margin-top: 15px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .star-rating-input {
-            direction: rtl;
-            display: inline-block;
-        }
-
-        .star-rating-input input {
-            display: none;
-        }
-
-        .star-rating-input label {
-            color: #ddd;
-            font-size: 1.8rem;
-            padding: 0 3px;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .star-rating-input input:checked~label,
-        .star-rating-input label:hover,
-        .star-rating-input label:hover~label {
-            color: #f39c12;
-        }
-
-        footer {
-            background: #2c3e50;
-            color: white;
-            padding: 0 30px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+        .thumbnail {
+          width: 60px;
+          height: 60px;
         }
 
         .footer-section {
-            flex: 1;
-            min-width: 200px;
-            margin-bottom: 20px;
-            text-align: center;
+          min-width: 100%;
         }
 
-        .footer-section h3 {
-            margin-bottom: 15px;
-            font-size: 1.2rem;
+        .product-card-price {
+          font-size: 0.9rem;
         }
 
-        .footer-section ul li {
-            margin-bottom: 8px;
+        .product-card-img {
+          height: 130px;
         }
 
-        .payment-methods {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
-            justify-content: center;
+        .average-rating {
+          flex-direction: column;
+          align-items: center;
         }
 
-        .payment-methods i {
-            font-size: 2rem;
-            opacity: 0.8;
+        .average-score {
+          margin-bottom: 5px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .products-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            margin-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        .header-top {
+          padding: 10px 15px;
+          /* 调整 .header-top 的移动端内边距 */
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
+        .header-content {
+          padding-bottom: 8px;
         }
 
-        .modal-content {
-            background: white;
-            border-radius: 8px;
-            padding: 25px;
-            width: 90%;
-            max-width: 500px;
-            max-height: 80vh;
-            overflow-y: auto;
+        .logo {
+          font-size: 1.2rem;
         }
 
-        .close-modal {
-            float: right;
-            font-size: 1.5rem;
-            cursor: pointer;
+        .search-box {
+          margin-right: 15px;
+          margin-left: 15px;
         }
 
-        .review-form textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            resize: vertical;
-            min-height: 100px;
+        .search-box input {
+          min-width: 60px;
         }
-
-        .star-rating {
-            direction: rtl;
-            margin-bottom: 15px;
-        }
-
-        .star-rating input {
-            display: none;
-        }
-
-        .star-rating label {
-            color: #ddd;
-            font-size: 1.5rem;
-            padding: 0 5px;
-            cursor: pointer;
-        }
-
-        .star-rating input:checked~label,
-        .star-rating label:hover,
-        .star-rating label:hover~label {
-            color: #f39c12;
-        }
-
-        .submit-review {
-            background: #2c3e50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .cart-items {
-            margin: 20px 0;
-        }
-
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-            align-items: center;
-        }
-
-        .cart-item-info {
-            flex: 1;
-        }
-
-        .cart-item-actions {
-            display: flex;
-            align-items: center;
-        }
-
-        .cart-item-price {
-            margin-right: 15px;
-            min-width: 80px;
-            text-align: right;
-        }
-
-        .remove-from-cart {
-            background: #e74c3c;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            margin-left: 10px;
-        }
-
-        .remove-from-cart:hover {
-            background: #c0392b;
-        }
-
-        .cart-total {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin: 15px 0;
-            text-align: right;
-        }
-
-        .checkout-btn {
-            background: #2c3e50;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 20px;
-            width: 100%;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        /* 会员登录模态框样式 */
-        .login-form input[type="text"],
-        .login-form input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        .login-form .btn-group {
-            display: flex;
-            gap: 10px;
-        }
-
-        .login-form .btn-group button {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .login-btn {
-            background-color: #2c3e50;
-            color: white;
-        }
-
-        .register-btn {
-            background-color: #f39c12;
-            color: white;
-        }
-
-        .navFooterBackToTop {
-            text-align: center;
-            padding: 5px;
-            cursor: pointer;
-            margin-bottom: 30px;
-        }
-
-        /* 商品规格参数区域样式 */
-        .product-specs-section {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            margin-bottom: 30px;
-        }
-
-        .specs-table {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .spec-row {
-            display: flex;
-            padding: 12px 0;
-            border-bottom: 1px solid #f1f1f1;
-        }
-
-        .spec-row:last-child {
-            border-bottom: none;
-        }
-
-        .spec-label {
-            font-weight: bold;
-            color: #333;
-            flex: 0 0 120px;
-        }
-
-        .spec-value {
-            color: #666;
-            flex: 1;
-        }
-
-        .star-label {
-            width: 50px;
-            color: #666;
-            font-size: 1rem;
-            text-align: right;
-            margin-right: 10px;
-            flex-shrink: 0;
-        }
-
-        @media (min-width: 769px) {
-            .nav-toggle {
-                display: none;
-            }
-
-            nav ul {
-                display: flex !important;
-                flex-direction: row;
-                position: static;
-                width: auto;
-                background: #f8f9fa;
-                padding: 10px 0;
-                justify-content: center;
-                box-shadow: none;
-                margin: 8px 0;
-                order: initial;
-                width: 100%;
-            }
-
-            nav ul li {
-                margin: 0 15px;
-                padding: 0;
-                border-bottom: none;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .products-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                padding-bottom: 8px;
-            }
-
-            .nav-toggle {
-                display: block;
-                font-size: 1.5rem;
-                cursor: pointer;
-                margin-right: 15px;
-            }
-
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            nav ul.show {
-                display: flex;
-            }
-
-            nav ul li {
-                margin: 0;
-                padding: 12px 20px;
-                border-bottom: none;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-
-            .search-box input {
-                min-width: 80px;
-            }
-
-            .product-card-info {
-                padding: 10px;
-            }
-
-            .product-card-img {
-                height: 150px;
-            }
-
-            .rating-summary {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .average-rating {
-                margin-right: 0;
-                margin-bottom: 20px;
-                display: flex;
-                align-items: center;
-            }
-
-            .average-score {
-                font-size: 2rem;
-                margin-right: 10px;
-            }
-
-            .rating-distribution {
-                width: 100%;
-            }
-
-            .quantity-input {
-                width: 40px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .header-content {
-                padding-bottom: 8px;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-
-            .product-gallery,
-            .product-info {
-                border: none;
-            }
-
-            .main-image {
-                height: 300px;
-            }
-
-            .thumbnail {
-                width: 60px;
-                height: 60px;
-            }
-
-            .footer-section {
-                min-width: 100%;
-            }
-
-            .product-card-price {
-                font-size: 0.9rem;
-            }
-
-            .product-card-img {
-                height: 130px;
-            }
-
-            .average-rating {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .average-score {
-                margin-bottom: 5px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .header-top {
-                padding: 10px 15px;
-                /* 调整 .header-top 的移动端内边距 */
-            }
-
-            .header-content {
-                padding-bottom: 8px;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            .search-box {
-                margin-right: 15px;
-                margin-left: 15px;
-            }
-
-            .search-box input {
-                min-width: 60px;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="header-content">
-            <div class="header-top">
-                <div class="left-menu">
-                    <div class="nav-toggle">
-                        <i class="fas fa-bars"></i>
-                    </div>
-                    <div class="logo">Shop</div>
-                </div>
-                <div class="search-cart">
-                    <!-- 会员图标 -->
-                    <div class="member-icon" id="member-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <!-- 购物车图标 -->
-                    <div class="cart-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count">0</span>
-                    </div>
-                </div>
+      <div class="header-content">
+        <div class="header-top">
+          <div class="left-menu">
+            <div class="nav-toggle">
+              <i class="fas fa-bars"></i>
             </div>
-            <!-- 搜索框在 .header-top 下方 -->
-            <div class="search-box">
-                <input type="text" placeholder="搜索商品..." id="search-input">
-                <button class="search-button" id="search-button">
-                    <i class="fas fa-search"></i>
-                    <span>搜索</span>
-                </button>
+            <div class="logo">Shop</div>
+          </div>
+          <div class="search-cart">
+            <!-- 会员图标 -->
+            <div class="member-icon" id="member-icon">
+              <i class="fas fa-user"></i>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#">首页</a></li>
-                    <li><a href="#">栏目一</a></li>
-                    <li><a href="#">栏目二</a></li>
-                    <li><a href="#">栏目三</a></li>
-                </ul>
-            </nav>
+
+            <!-- 购物车图标 -->
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count">0</span>
+            </div>
+          </div>
         </div>
+        <!-- 搜索框在 .header-top 下方 -->
+        <div class="search-box">
+          <input type="text" placeholder="搜索商品..." id="search-input" />
+          <button class="search-button" id="search-button">
+            <i class="fas fa-search"></i>
+            <span>搜索</span>
+          </button>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">栏目一</a></li>
+            <li><a href="#">栏目二</a></li>
+            <li><a href="#">栏目三</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <main class="container">
-        <section class="product-detail">
-            <div class="product-gallery">
-                <div class="main-image">
-                    <img src="img/2.webp" alt="主商品图片" id="main-img" loading="eager" fetchpriority="high">
-                </div>
-                <div class="thumbnails">
-                    <div class="thumbnail">
-                        <img src="img/2.webp" alt="商品缩略图1" data-full="img/2.webp">
-                    </div>
-                    <div class="thumbnail">
-                        <img src="img/3.webp" alt="商品缩略图2" data-full="img/3.webp">
-                    </div>
-                    <div class="thumbnail">
-                        <img src="img/2.webp" alt="商品缩略图3" data-full="img/4.webp">
-                    </div>
-                    <div class="thumbnail">
-                        <img src="img/5.webp" alt="商品缩略图4" data-full="img/5.webp">
-                    </div>
-                </div>
+      <section class="product-detail">
+        <div class="product-gallery">
+          <div class="main-image">
+            <img
+              src="img/2.webp"
+              alt="主商品图片"
+              id="main-img"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </div>
+          <div class="thumbnails">
+            <div class="thumbnail">
+              <img src="img/2.webp" alt="商品缩略图1" data-full="img/2.webp" />
             </div>
-            <div class="product-info">
-                <h1 class="product-title">高品质商品名称</h1>
-                <div class="product-price">¥299.00</div>
-                <div class="product-rating">
-                    <div class="average-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <span class="average-stars-span">(128 条评价)</span>
-                    </div>
-                </div>
-                <div class="product-options">
-                    <div class="option-group">
-                        <span class="option-label">颜色:</span>
-                        <div class="color-options">
-                            <div class="color-option selected" data-color="red" style="background-color: #e74c3c;">
-                            </div>
-                            <div class="color-option" data-color="blue" style="background-color: #3498db;"></div>
-                            <div class="color-option" data-color="green" style="background-color: #2ecc71;"></div>
-                            <div class="color-option" data-color="black" style="background-color: #2c3e50;"></div>
-                        </div>
-                    </div>
-                    <div class="option-group">
-                        <label for="quantity-input" class="option-label">数量:</label>
-                        <div class="quantity-selector">
-                            <button class="quantity-btn decrease">-</button>
-                            <input type="number" class="quantity-input" id="quantity-input" value="1" min="1">
-                            <button class="quantity-btn increase">+</button>
-                        </div>
-                    </div>
-                </div>
-                <p class="product-description">
-                    这是一段关于这个优质商品的详细描述。产品采用高质量材料制成，经过精心设计，确保满足您的各种需求。产品特性包括耐用性、多功能性和美观设计。
-                </p>
-                <button class="add-to-cart">加入购物车</button>
+            <div class="thumbnail">
+              <img src="img/3.webp" alt="商品缩略图2" data-full="img/3.webp" />
             </div>
-        </section>
+            <div class="thumbnail">
+              <img src="img/2.webp" alt="商品缩略图3" data-full="img/4.webp" />
+            </div>
+            <div class="thumbnail">
+              <img src="img/5.webp" alt="商品缩略图4" data-full="img/5.webp" />
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <h1 class="product-title">高品质商品名称</h1>
+          <div class="product-price">¥299.00</div>
+          <div class="product-rating">
+            <div class="average-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="average-stars-span">(128 条评价)</span>
+            </div>
+          </div>
+          <div class="product-options">
+            <div class="option-group">
+              <span class="option-label">颜色:</span>
+              <div class="color-options">
+                <div
+                  class="color-option selected"
+                  data-color="red"
+                  style="background-color: #e74c3c"
+                ></div>
+                <div
+                  class="color-option"
+                  data-color="blue"
+                  style="background-color: #3498db"
+                ></div>
+                <div
+                  class="color-option"
+                  data-color="green"
+                  style="background-color: #2ecc71"
+                ></div>
+                <div
+                  class="color-option"
+                  data-color="black"
+                  style="background-color: #2c3e50"
+                ></div>
+              </div>
+            </div>
+            <div class="option-group">
+              <label for="quantity-input" class="option-label">数量:</label>
+              <div class="quantity-selector">
+                <button class="quantity-btn decrease">-</button>
+                <input
+                  type="number"
+                  class="quantity-input"
+                  id="quantity-input"
+                  value="1"
+                  min="1"
+                />
+                <button class="quantity-btn increase">+</button>
+              </div>
+            </div>
+          </div>
+          <p class="product-description">
+            这是一段关于这个优质商品的详细描述。产品采用高质量材料制成，经过精心设计，确保满足您的各种需求。产品特性包括耐用性、多功能性和美观设计。
+          </p>
+          <button class="add-to-cart">加入购物车</button>
+        </div>
+      </section>
 
-        <!-- 新增：独立的商品规格参数区域（放在 product-detail 之后） -->
-        <section class="product-specs-section">
-            <h2 class="section-title">规格参数</h2>
-            <div class="specs-table">
-                <div class="spec-row">
-                    <div class="spec-label">长度</div>
-                    <div class="spec-value">30 cm</div>
+      <!-- 新增：独立的商品规格参数区域（放在 product-detail 之后） -->
+      <section class="product-specs-section">
+        <h2 class="section-title">规格参数</h2>
+        <div class="specs-table">
+          <div class="spec-row">
+            <div class="spec-label">长度</div>
+            <div class="spec-value">30 cm</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">宽度</div>
+            <div class="spec-value">20 cm</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">高度</div>
+            <div class="spec-value">15 cm</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">重量</div>
+            <div class="spec-value">1.2 kg</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">型号</div>
+            <div class="spec-value">SP-2025</div>
+          </div>
+        </div>
+      </section>
+      <section class="related-products">
+        <h2 class="section-title">相关推荐</h2>
+        <div class="products-grid">
+          <div class="product-card">
+            <a href="#">
+              <div class="product-card-img">
+                <img src="img/6.webp" alt="推荐商品1" />
+              </div>
+              <div class="product-card-info">
+                <h3 class="product-card-title">
+                  推荐商品名称一号这是一个较长的标题测试
+                </h3>
+                <div class="product-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
                 </div>
-                <div class="spec-row">
-                    <div class="spec-label">宽度</div>
-                    <div class="spec-value">20 cm</div>
+                <div class="product-card-price">¥199.00</div>
+              </div>
+            </a>
+          </div>
+          <div class="product-card">
+            <a href="#">
+              <div class="product-card-img">
+                <img src="img/7.webp" alt="推荐商品2" />
+              </div>
+              <div class="product-card-info">
+                <h3 class="product-card-title">推荐商品名称二号</h3>
+                <div class="product-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
                 </div>
-                <div class="spec-row">
-                    <div class="spec-label">高度</div>
-                    <div class="spec-value">15 cm</div>
+                <div class="product-card-price">¥249.00</div>
+              </div>
+            </a>
+          </div>
+          <div class="product-card">
+            <a href="#">
+              <div class="product-card-img">
+                <img src="img/8.webp" alt="推荐商品3" />
+              </div>
+              <div class="product-card-info">
+                <h3 class="product-card-title">推荐商品名称三号</h3>
+                <div class="product-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
                 </div>
-                <div class="spec-row">
-                    <div class="spec-label">重量</div>
-                    <div class="spec-value">1.2 kg</div>
+                <div class="product-card-price">¥179.00</div>
+              </div>
+            </a>
+          </div>
+          <div class="product-card">
+            <a href="#">
+              <div class="product-card-img">
+                <img src="img/9.webp" alt="推荐商品4" />
+              </div>
+              <div class="product-card-info">
+                <h3 class="product-card-title">推荐商品名称四号</h3>
+                <div class="product-card-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
                 </div>
-                <div class="spec-row">
-                    <div class="spec-label">型号</div>
-                    <div class="spec-value">SP-2025</div>
-                </div>
+                <div class="product-card-price">¥299.00</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="reviews">
+        <h2 class="section-title">商品评价</h2>
+        <div class="rating-summary">
+          <div class="average-rating">
+            <div class="average-score">4.9</div>
+            <div class="average-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
             </div>
-        </section>
-        <section class="related-products">
-            <h2 class="section-title">相关推荐</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <a href="#">
-                        <div class="product-card-img">
-                            <img src="img/6.webp" alt="推荐商品1">
-                        </div>
-                        <div class="product-card-info">
-                            <h3 class="product-card-title">推荐商品名称一号这是一个较长的标题测试</h3>
-                            <div class="product-card-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <div class="product-card-price">¥199.00</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="product-card">
-                    <a href="#">
-                        <div class="product-card-img">
-                            <img src="img/7.webp" alt="推荐商品2">
-                        </div>
-                        <div class="product-card-info">
-                            <h3 class="product-card-title">推荐商品名称二号</h3>
-                            <div class="product-card-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <div class="product-card-price">¥249.00</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="product-card">
-                    <a href="#">
-                        <div class="product-card-img">
-                            <img src="img/8.webp" alt="推荐商品3">
-                        </div>
-                        <div class="product-card-info">
-                            <h3 class="product-card-title">推荐商品名称三号</h3>
-                            <div class="product-card-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <div class="product-card-price">¥179.00</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="product-card">
-                    <a href="#">
-                        <div class="product-card-img">
-                            <img src="img/9.webp" alt="推荐商品4">
-                        </div>
-                        <div class="product-card-info">
-                            <h3 class="product-card-title">推荐商品名称四号</h3>
-                            <div class="product-card-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <div class="product-card-price">¥299.00</div>
-                        </div>
-                    </a>
-                </div>
+            <div class="total-reviews">128 条评价</div>
+            <button class="write-review-btn">写评论</button>
+          </div>
+          <div class="rating-distribution">
+            <div class="rating-bar">
+              <span class="star-label">5 star</span>
+              <div class="rating-progress">
+                <div class="rating-progress-fill" style="width: 95%"></div>
+              </div>
+              <div class="rating-percent">95%</div>
             </div>
-        </section>
-        <section class="reviews">
-            <h2 class="section-title">商品评价</h2>
-            <div class="rating-summary">
-                <div class="average-rating">
-                    <div class="average-score">4.9</div>
-                    <div class="average-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="total-reviews">128 条评价</div>
-                    <button class="write-review-btn">写评论</button>
-                </div>
-                <div class="rating-distribution">
-                    <div class="rating-bar">
-                        <span class="star-label">5 star</span>
-                        <div class="rating-progress">
-                            <div class="rating-progress-fill" style="width: 95%;"></div>
-                        </div>
-                        <div class="rating-percent">95%</div>
-                    </div>
-                    <div class="rating-bar">
-                        <span class="star-label">4 star</span>
-                        <div class="rating-progress">
-                            <div class="rating-progress-fill" style="width: 5%;"></div>
-                        </div>
-                        <div class="rating-percent">5%</div>
-                    </div>
-                    <div class="rating-bar">
-                        <span class="star-label">3 star</span>
-                        <div class="rating-progress">
-                            <div class="rating-progress-fill" style="width: 0%;"></div>
-                        </div>
-                        <div class="rating-percent">0%</div>
-                    </div>
-                    <div class="rating-bar">
-                        <span class="star-label">2 star</span>
-                        <div class="rating-progress">
-                            <div class="rating-progress-fill" style="width: 0%;"></div>
-                        </div>
-                        <div class="rating-percent">0%</div>
-                    </div>
-                    <div class="rating-bar">
-                        <span class="star-label">1 star</span>
-                        <div class="rating-progress">
-                            <div class="rating-progress-fill" style="width: 0%;"></div>
-                        </div>
-                        <div class="rating-percent">0%</div>
-                    </div>
-                </div>
+            <div class="rating-bar">
+              <span class="star-label">4 star</span>
+              <div class="rating-progress">
+                <div class="rating-progress-fill" style="width: 5%"></div>
+              </div>
+              <div class="rating-percent">5%</div>
             </div>
-            <div class="review-item">
-                <div class="review-header">
-                    <span class="review-author">张***</span>
-                </div>
-                <div class="review-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="review-content">商品质量非常好，完全符合描述，卖家服务态度也很好，物流速度快，非常满意的一次购物体验！</p>
+            <div class="rating-bar">
+              <span class="star-label">3 star</span>
+              <div class="rating-progress">
+                <div class="rating-progress-fill" style="width: 0%"></div>
+              </div>
+              <div class="rating-percent">0%</div>
             </div>
-            <div class="review-item">
-                <div class="review-header">
-                    <span class="review-author">李***</span>
-                </div>
-                <div class="review-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="review-content">商品不错，就是包装有点简单，好在没有损坏。使用效果符合预期，性价比高。</p>
+            <div class="rating-bar">
+              <span class="star-label">2 star</span>
+              <div class="rating-progress">
+                <div class="rating-progress-fill" style="width: 0%"></div>
+              </div>
+              <div class="rating-percent">0%</div>
             </div>
-            <div class="review-item">
-                <div class="review-header">
-                    <span class="review-author">李***</span>
-                </div>
-                <div class="review-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p class="review-content">商品不错，就是包装有点简单，好在没有损坏。使用效果符合预期，性价比高。</p>
+            <div class="rating-bar">
+              <span class="star-label">1 star</span>
+              <div class="rating-progress">
+                <div class="rating-progress-fill" style="width: 0%"></div>
+              </div>
+              <div class="rating-percent">0%</div>
             </div>
-        </section>
+          </div>
+        </div>
+        <div class="review-item">
+          <div class="review-header">
+            <span class="review-author">张***</span>
+          </div>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-content">
+            商品质量非常好，完全符合描述，卖家服务态度也很好，物流速度快，非常满意的一次购物体验！
+          </p>
+        </div>
+        <div class="review-item">
+          <div class="review-header">
+            <span class="review-author">李***</span>
+          </div>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-content">
+            商品不错，就是包装有点简单，好在没有损坏。使用效果符合预期，性价比高。
+          </p>
+        </div>
+        <div class="review-item">
+          <div class="review-header">
+            <span class="review-author">李***</span>
+          </div>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p class="review-content">
+            商品不错，就是包装有点简单，好在没有损坏。使用效果符合预期，性价比高。
+          </p>
+        </div>
+      </section>
     </main>
     <footer>
-        <div class="navFooterBackToTop">
-            <a id="backToTopBtn">
-                <i class="fas fa-chevron-up"></i>
-                <span>Back to top</span>
-            </a>
+      <div class="navFooterBackToTop">
+        <a id="backToTopBtn">
+          <i class="fas fa-chevron-up"></i>
+          <span>Back to top</span>
+        </a>
+      </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>购物指南</h3>
+          <ul>
+            <li><a href="#">栏目四</a></li>
+            <li><a href="#">栏目五</a></li>
+            <li><a href="#">栏目六</a></li>
+          </ul>
         </div>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>购物指南</h3>
-                <ul>
-                    <li><a href="#">栏目四</a></li>
-                    <li><a href="#">栏目五</a></li>
-                    <li><a href="#">栏目六</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <div class="payment-methods">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-amex"></i>
-                    <i class="fab fa-cc-paypal"></i>
-                    <i class="fab fa-cc-apple-pay"></i>
-                    <i class="fab fa-cc-discover"></i>
-                    <i class="fab fa-cc-jcb"></i>
-                    <i class="fab fa-cc-diners-club"></i>
-                </div>
-            </div>
+        <div class="footer-section">
+          <div class="payment-methods">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-amex"></i>
+            <i class="fab fa-cc-paypal"></i>
+            <i class="fab fa-cc-apple-pay"></i>
+            <i class="fab fa-cc-discover"></i>
+            <i class="fab fa-cc-jcb"></i>
+            <i class="fab fa-cc-diners-club"></i>
+          </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2023 Shop. 版权所有</p>
-        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Shop. 版权所有</p>
+      </div>
     </footer>
     <!-- 会员登录/注册模态框 -->
     <div class="modal" id="member-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>会员中心</h2>
-            <form class="login-form">
-                <input type="text" placeholder="用户名/邮箱" required>
-                <input type="password" placeholder="密码" required>
-                <div class="btn-group">
-                    <button type="submit" class="register-btn">注册</button>
-                    <button type="submit" class="login-btn">登录</button>
-                </div>
-            </form>
-        </div>
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>会员中心</h2>
+        <form class="login-form">
+          <input type="text" placeholder="用户名/邮箱" required />
+          <input type="password" placeholder="密码" required />
+          <div class="btn-group">
+            <button class="register-btn">注册</button>
+            <button class="login-btn">登录</button>
+          </div>
+        </form>
+      </div>
     </div>
     <!-- 原有的评论和购物车模态框 -->
     <div class="modal" id="review-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>撰写评论</h2>
-            <form class="review-form">
-                <div class="star-rating">
-                    <input type="radio" id="star5" name="rating" value="5">
-                    <label for="star5"><i class="fas fa-star"></i></label>
-                    <input type="radio" id="star4" name="rating" value="4">
-                    <label for="star4"><i class="fas fa-star"></i></label>
-                    <input type="radio" id="star3" name="rating" value="3">
-                    <label for="star3"><i class="fas fa-star"></i></label>
-                    <input type="radio" id="star2" name="rating" value="2">
-                    <label for="star2"><i class="fas fa-star"></i></label>
-                    <input type="radio" id="star1" name="rating" value="1">
-                    <label for="star1"><i class="fas fa-star"></i></label>
-                </div>
-                <textarea placeholder="分享您的使用体验..."></textarea>
-                <button type="submit" class="submit-review">提交评论</button>
-            </form>
-        </div>
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>撰写评论</h2>
+        <form class="review-form">
+          <div class="star-rating">
+            <input type="radio" id="star5" name="rating" value="5" />
+            <label for="star5"><i class="fas fa-star"></i></label>
+            <input type="radio" id="star4" name="rating" value="4" />
+            <label for="star4"><i class="fas fa-star"></i></label>
+            <input type="radio" id="star3" name="rating" value="3" />
+            <label for="star3"><i class="fas fa-star"></i></label>
+            <input type="radio" id="star2" name="rating" value="2" />
+            <label for="star2"><i class="fas fa-star"></i></label>
+            <input type="radio" id="star1" name="rating" value="1" />
+            <label for="star1"><i class="fas fa-star"></i></label>
+          </div>
+          <textarea placeholder="分享您的使用体验..."></textarea>
+          <button type="submit" class="submit-review">提交评论</button>
+        </form>
+      </div>
     </div>
     <div class="modal" id="cart-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>购物车</h2>
-            <div class="cart-items">
-            </div>
-            <div class="cart-total">总计: ¥0.00</div>
-            <button class="checkout-btn">结算</button>
-        </div>
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>购物车</h2>
+        <div class="cart-items"></div>
+        <div class="cart-total">总计: ¥0.00</div>
+        <button class="checkout-btn">结算</button>
+      </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const navToggle = document.querySelector('.nav-toggle');
-            const navMenu = document.querySelector('nav ul');
-            navToggle.addEventListener('click', function (e) {
-                e.stopPropagation();
-                navMenu.classList.toggle('show');
-            });
-            document.addEventListener('click', function (e) {
-                if (!e.target.closest('nav') && navMenu.classList.contains('show')) {
-                    navMenu.classList.remove('show');
-                }
-            });
-            navMenu.addEventListener('click', function (e) {
-                e.stopPropagation();
-            });
-            window.addEventListener('resize', function () {
-                if (window.innerWidth > 768 && navMenu.classList.contains('show')) {
-                    navMenu.classList.remove('show');
-                }
-            });
-            const thumbnails = document.querySelectorAll('.thumbnail img');
-            const mainImg = document.getElementById('main-img');
-            thumbnails.forEach(thumb => {
-                thumb.addEventListener('click', function () {
-                    mainImg.src = this.getAttribute('data-full');
-                    mainImg.alt = this.alt;
-                });
-            });
-            const colorOptions = document.querySelectorAll('.color-option');
-            colorOptions.forEach(option => {
-                option.addEventListener('click', function () {
-                    colorOptions.forEach(opt => opt.classList.remove('selected'));
-                    this.classList.add('selected');
-                });
-            });
-            const quantityInput = document.getElementById('quantity-input');
-            const decreaseBtn = document.querySelector('.quantity-btn.decrease');
-            const increaseBtn = document.querySelector('.quantity-btn.increase');
-            increaseBtn.addEventListener('click', function () {
-                let currentValue = parseInt(quantityInput.value) || 0;
-                quantityInput.value = currentValue + 1;
-            });
-            decreaseBtn.addEventListener('click', function () {
-                let currentValue = parseInt(quantityInput.value) || 0;
-                if (currentValue > 1) {
-                    quantityInput.value = currentValue - 1;
-                }
-            });
-            quantityInput.addEventListener('input', function () {
-                let value = this.value;
-                value = value.replace(/[^0-9]/g, '');
-                if (value === '' || parseInt(value) < 1) {
-                    value = '1';
-                }
-                this.value = value;
-            });
-            const cartIcon = document.querySelector('.cart-icon');
-            const cartModal = document.getElementById('cart-modal');
-            const cartCount = document.querySelector('.cart-count');
-            const cartItems = document.querySelector('.cart-items');
-            const cartTotal = document.querySelector('.cart-total');
-            const addToCartBtn = document.querySelector('.add-to-cart');
-            let cart = [];
-            cartIcon.addEventListener('click', function () {
-                updateCartModal();
-                cartModal.style.display = 'flex';
-            });
-            addToCartBtn.addEventListener('click', function () {
-                const selectedColorElement = document.querySelector('.color-option.selected');
-                const selectedColor = selectedColorElement ? selectedColorElement.getAttribute('data-color') : '默认颜色';
-                const quantity = parseInt(quantityInput.value) || 1;
-                const product = {
-                    name: document.querySelector('.product-title').textContent,
-                    price: parseFloat(document.querySelector('.product-price').textContent.replace('¥', '')),
-                    quantity: quantity,
-                    color: selectedColor,
-                    image: mainImg.src
-                };
-                const existingItemIndex = cart.findIndex(item =>
-                    item.name === product.name && item.color === product.color
-                );
-                if (existingItemIndex !== -1) {
-                    cart[existingItemIndex].quantity += product.quantity;
-                } else {
-                    cart.push(product);
-                }
-                updateCartCount();
-                alert(`商品已成功添加到购物车\n颜色: ${selectedColor}\n数量: ${quantity}`);
-            });
-            function updateCartCount() {
-                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-                cartCount.textContent = totalItems;
-            }
-            function updateCartModal() {
-                cartItems.innerHTML = '';
-                let total = 0;
-                if (cart.length === 0) {
-                    cartItems.innerHTML = '<p>购物车是空的</p>';
-                } else {
-                    cart.forEach((item, index) => {
-                        const itemTotal = item.price * item.quantity;
-                        total += itemTotal;
-                        const cartItemEl = document.createElement('div');
-                        cartItemEl.classList.add('cart-item');
-                        const itemId = `${item.name}-${item.color}`;
-                        cartItemEl.innerHTML = `
+      document.addEventListener("DOMContentLoaded", function () {
+        const navToggle = document.querySelector(".nav-toggle");
+        const navMenu = document.querySelector("nav ul");
+        navToggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          navMenu.classList.toggle("show");
+        });
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest("nav") && navMenu.classList.contains("show")) {
+            navMenu.classList.remove("show");
+          }
+        });
+        navMenu.addEventListener("click", function (e) {
+          e.stopPropagation();
+        });
+        window.addEventListener("resize", function () {
+          if (window.innerWidth > 768 && navMenu.classList.contains("show")) {
+            navMenu.classList.remove("show");
+          }
+        });
+        const thumbnails = document.querySelectorAll(".thumbnail img");
+        const mainImg = document.getElementById("main-img");
+        thumbnails.forEach((thumb) => {
+          thumb.addEventListener("click", function () {
+            mainImg.src = this.getAttribute("data-full");
+            mainImg.alt = this.alt;
+          });
+        });
+        const colorOptions = document.querySelectorAll(".color-option");
+        colorOptions.forEach((option) => {
+          option.addEventListener("click", function () {
+            colorOptions.forEach((opt) => opt.classList.remove("selected"));
+            this.classList.add("selected");
+          });
+        });
+        const quantityInput = document.getElementById("quantity-input");
+        const decreaseBtn = document.querySelector(".quantity-btn.decrease");
+        const increaseBtn = document.querySelector(".quantity-btn.increase");
+        increaseBtn.addEventListener("click", function () {
+          let currentValue = parseInt(quantityInput.value) || 0;
+          quantityInput.value = currentValue + 1;
+        });
+        decreaseBtn.addEventListener("click", function () {
+          let currentValue = parseInt(quantityInput.value) || 0;
+          if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+          }
+        });
+        quantityInput.addEventListener("input", function () {
+          let value = this.value;
+          value = value.replace(/[^0-9]/g, "");
+          if (value === "" || parseInt(value) < 1) {
+            value = "1";
+          }
+          this.value = value;
+        });
+        const cartIcon = document.querySelector(".cart-icon");
+        const cartModal = document.getElementById("cart-modal");
+        const cartCount = document.querySelector(".cart-count");
+        const cartItems = document.querySelector(".cart-items");
+        const cartTotal = document.querySelector(".cart-total");
+        const addToCartBtn = document.querySelector(".add-to-cart");
+        let cart = [];
+        cartIcon.addEventListener("click", function () {
+          updateCartModal();
+          cartModal.style.display = "flex";
+        });
+        addToCartBtn.addEventListener("click", function () {
+          const selectedColorElement = document.querySelector(
+            ".color-option.selected"
+          );
+          const selectedColor = selectedColorElement
+            ? selectedColorElement.getAttribute("data-color")
+            : "默认颜色";
+          const quantity = parseInt(quantityInput.value) || 1;
+          const product = {
+            name: document.querySelector(".product-title").textContent,
+            price: parseFloat(
+              document
+                .querySelector(".product-price")
+                .textContent.replace("¥", "")
+            ),
+            quantity: quantity,
+            color: selectedColor,
+            image: mainImg.src,
+          };
+          const existingItemIndex = cart.findIndex(
+            (item) => item.name === product.name && item.color === product.color
+          );
+          if (existingItemIndex !== -1) {
+            cart[existingItemIndex].quantity += product.quantity;
+          } else {
+            cart.push(product);
+          }
+          updateCartCount();
+          updateCartModal();
+          cartModal.style.display = "flex";
+        });
+        function updateCartCount() {
+          const totalItems = cart.reduce(
+            (total, item) => total + item.quantity,
+            0
+          );
+          cartCount.textContent = totalItems;
+        }
+        function updateCartModal() {
+          cartItems.innerHTML = "";
+          let total = 0;
+          if (cart.length === 0) {
+            cartItems.innerHTML = "<p>购物车是空的</p>";
+          } else {
+            cart.forEach((item, index) => {
+              const itemTotal = item.price * item.quantity;
+              total += itemTotal;
+              const cartItemEl = document.createElement("div");
+              cartItemEl.classList.add("cart-item");
+              const itemId = `${item.name}-${item.color}`;
+              cartItemEl.innerHTML = `
                             <div class="cart-item-info">
                                 <h4>${item.name}</h4>
                                 <p>颜色: ${item.color}</p>
-                                <p>¥${item.price.toFixed(2)} x ${item.quantity}</p>
+                                <p>¥${item.price.toFixed(2)} x ${
+                item.quantity
+              }</p>
                             </div>
                             <div class="cart-item-actions">
-                                <span class="cart-item-price">¥${itemTotal.toFixed(2)}</span>
+                                <span class="cart-item-price">¥${itemTotal.toFixed(
+                                  2
+                                )}</span>
                                 <button class="remove-from-cart" data-id="${itemId}">删除</button>
                             </div>
                         `;
-                        cartItems.appendChild(cartItemEl);
-                        const removeButton = cartItemEl.querySelector('.remove-from-cart');
-                        removeButton.addEventListener('click', function () {
-                            const idToRemove = this.getAttribute('data-id');
-                            const itemIndex = cart.findIndex(cartItem => `${cartItem.name}-${cartItem.color}` === idToRemove);
-                            if (itemIndex !== -1) {
-                                cart.splice(itemIndex, 1);
-                                updateCartModal();
-                                updateCartCount();
-                            }
-                        });
-                    });
+              cartItems.appendChild(cartItemEl);
+              const removeButton =
+                cartItemEl.querySelector(".remove-from-cart");
+              removeButton.addEventListener("click", function () {
+                const idToRemove = this.getAttribute("data-id");
+                const itemIndex = cart.findIndex(
+                  (cartItem) =>
+                    `${cartItem.name}-${cartItem.color}` === idToRemove
+                );
+                if (itemIndex !== -1) {
+                  cart.splice(itemIndex, 1);
+                  updateCartModal();
+                  updateCartCount();
                 }
-                cartTotal.textContent = `总计: ¥${total.toFixed(2)}`;
-            }
-            const reviewBtn = document.querySelector('.write-review-btn');
-            const reviewModal = document.getElementById('review-modal');
-            reviewBtn.addEventListener('click', function () {
-                reviewModal.style.display = 'flex';
+              });
             });
-            // 会员图标点击事件
-            const memberIcon = document.getElementById('member-icon');
-            const memberModal = document.getElementById('member-modal');
-            memberIcon.addEventListener('click', function () {
-                memberModal.style.display = 'flex';
-            });
-            const closeButtons = document.querySelectorAll('.close-modal');
-            closeButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    reviewModal.style.display = 'none';
-                    cartModal.style.display = 'none';
-                    memberModal.style.display = 'none'; // 关闭会员模态框
-                });
-            });
-            window.addEventListener('click', function (event) {
-                if (event.target === reviewModal) {
-                    reviewModal.style.display = 'none';
-                }
-                if (event.target === cartModal) {
-                    cartModal.style.display = 'none';
-                }
-                if (event.target === memberModal) { // 点击背景关闭会员模态框
-                    memberModal.style.display = 'none';
-                }
-            });
-            // --- 修改：评论表单提交事件 ---
-            const reviewForm = document.querySelector('.review-form');
-            reviewForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const rating = document.querySelector('input[name="rating"]:checked');
-                const comment = document.querySelector('.review-form textarea').value;
-                // 关闭评论模态框
-                reviewModal.style.display = 'none';
-                // 弹出会员登录模态框
-                memberModal.style.display = 'flex';
-            });
-            // --- 修改结束 ---
-            const loginForm = document.querySelector('.login-form');
-            loginForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const username = this.querySelector('input[type="text"]').value;
-                const password = this.querySelector('input[type="password"]').value;
-                apipost("/login", { username: username, password: password})
-                // 登录成功后，可以关闭模态框
-                // memberModal.style.display = 'none';
-            });
-            const registerBtn = document.querySelector('.register-btn');
-            registerBtn.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const username = this.querySelector('input[type="text"]').value;
-                const password = this.querySelector('input[type="password"]').value;
-                apipost("/login", { username: username, password: password})
-                // 登录成功后，可以关闭模态框
-                // memberModal.style.display = 'none';
-            });
-            
-            const searchInput = document.getElementById('search-input');
-            const searchButton = document.getElementById('search-button');
-            function performSearch() {
-                const query = searchInput.value.trim();
-                apipost("/search", { query: query})
-            }
-            if (searchButton) {
-                searchButton.addEventListener('click', performSearch);
-            }
-            if (searchInput) {
-                searchInput.addEventListener('keypress', function (event) {
-                    if (event.key === 'Enter') {
-                        performSearch();
-                    }
-                });
-            }
-            const backToTopBtn = document.getElementById('backToTopBtn');
-            function topFunction() {
-                document.body.scrollIntoView({ behavior: "smooth" });
-            }
-            backToTopBtn.addEventListener('click', topFunction);
-            const checkoutBtn = document.querySelector('.checkout-btn');
-            checkoutBtn.addEventListener('click', function () {
-                cartModal.style.display = 'none';
-                memberModal.style.display = 'flex';
-            });
-        });
-        function apipost(url, data = {}, options = {}) {
-            const {
-                timeout = 5000,
-                headers = {}
-            } = options;
-            const defaultHeaders = {
-                'Content-Type': 'application/json',
-                ...headers
-            };
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), timeout);
-            return fetch(url, {
-                method: 'POST',
-                headers: defaultHeaders,
-                body: JSON.stringify(data),
-                signal: controller.signal
-            }).then(response => {
-                    clearTimeout(timeoutId);
-                    if (!response.ok) {
-                        return response.text().then(text => {
-                            throw new Error(`HTTP ${response.status}: ${text || response.statusText}`);
-                        });
-                    }
-                    const contentType = response.headers.get('content-type');
-                    if (contentType && contentType.includes('application/json')) {
-                        return response.json();
-                    } else {
-                        return response.text();
-                    }
-                })
-                .catch(error => {
-                    clearTimeout(timeoutId);
-                    if (error.name === 'AbortError') {
-                        throw new Error('Request timeout');
-                    }
-                    throw error;
-                });
+          }
+          cartTotal.textContent = `总计: ¥${total.toFixed(2)}`;
         }
-    </script>
-</body>
+        const reviewBtn = document.querySelector(".write-review-btn");
+        const reviewModal = document.getElementById("review-modal");
+        reviewBtn.addEventListener("click", function () {
+          reviewModal.style.display = "flex";
+        });
+        // 会员图标点击事件
+        const memberIcon = document.getElementById("member-icon");
+        const memberModal = document.getElementById("member-modal");
+        memberIcon.addEventListener("click", function () {
+          memberModal.style.display = "flex";
+        });
+        const closeButtons = document.querySelectorAll(".close-modal");
+        closeButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            reviewModal.style.display = "none";
+            cartModal.style.display = "none";
+            memberModal.style.display = "none"; // 关闭会员模态框
+          });
+        });
+        window.addEventListener("click", function (event) {
+          if (event.target === reviewModal) {
+            reviewModal.style.display = "none";
+          }
+          if (event.target === cartModal) {
+            cartModal.style.display = "none";
+          }
+          if (event.target === memberModal) {
+            // 点击背景关闭会员模态框
+            memberModal.style.display = "none";
+          }
+        });
+        // --- 修改：评论表单提交事件 ---
+        const reviewForm = document.querySelector(".review-form");
+        reviewForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const rating = document.querySelector('input[name="rating"]:checked');
+          const comment = document.querySelector(".review-form textarea").value;
+          // 关闭评论模态框
+          reviewModal.style.display = "none";
+          // 弹出会员登录模态框
+          memberModal.style.display = "flex";
+        });
+        // --- 修改结束 ---
+        const loginBtn = document.querySelector(".login-btn");
+        const registerBtn = document.querySelector(".register-btn");
+        const usernameInput = document.querySelector(
+          '.login-form input[type="text"]'
+        );
+        const passwordInput = document.querySelector(
+          '.login-form input[type="password"]'
+        );
 
+        loginBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          apipost("/login", {
+            username: usernameInput.value,
+            password: passwordInput.value,
+          });
+          memberModal.style.display = "none";
+        });
+
+        registerBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          apipost("/register", {
+            username: usernameInput.value,
+            password: passwordInput.value,
+          });
+          memberModal.style.display = "none";
+        });
+
+        const searchInput = document.getElementById("search-input");
+        const searchButton = document.getElementById("search-button");
+        function performSearch() {
+          const query = searchInput.value.trim();
+          apipost("/search", { query: query });
+        }
+        if (searchButton) {
+          searchButton.addEventListener("click", performSearch);
+        }
+        if (searchInput) {
+          searchInput.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+              performSearch();
+            }
+          });
+        }
+        const backToTopBtn = document.getElementById("backToTopBtn");
+        function topFunction() {
+          document.body.scrollIntoView({ behavior: "smooth" });
+        }
+        backToTopBtn.addEventListener("click", topFunction);
+        const checkoutBtn = document.querySelector(".checkout-btn");
+        checkoutBtn.addEventListener("click", function () {
+          cartModal.style.display = "none";
+          memberModal.style.display = "flex";
+        });
+      });
+      async function apipost(url, data = {}, options = {}) {
+        const { timeout = 5000, headers = {} } = options;
+        const defaultHeaders = {
+          "Content-Type": "application/json",
+          ...headers,
+        };
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeout);
+        return fetch(url, {
+          method: "POST",
+          headers: defaultHeaders,
+          body: JSON.stringify(data),
+          signal: controller.signal,
+        })
+          .then((response) => {
+            clearTimeout(timeoutId);
+            if (!response.ok) {
+              return response.text().then((text) => {
+                throw new Error(
+                  `HTTP ${response.status}: ${text || response.statusText}`
+                );
+              });
+            }
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.includes("application/json")) {
+              return response.json();
+            } else {
+              return response.text();
+            }
+          })
+          .catch((error) => {
+            clearTimeout(timeoutId);
+            if (error.name === "AbortError") {
+              throw new Error("Request timeout");
+            }
+            throw error;
+          });
+      }
+    </script>
+  </body>
 </html>
